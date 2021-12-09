@@ -1,0 +1,173 @@
+:root{
+    --brown:#fcb043;
+    --dark-brown:#e2791b;
+    --light-blue:#def2fc;
+}
+
+body{
+    margin:0;
+    font-family:'Ubuntu';
+    background:white;
+}
+
+#navbar{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    width:90vw;
+    margin: 0 auto;
+    height:100px;
+    position:relative;
+    z-index:1;
+}
+
+#navbar > img:first-of-type{
+    height:50px;
+    margin-right:5px;
+}
+
+#headers{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+#headers > h1{
+    margin:0;
+    font-size:32px;
+    font-weight:700;
+}
+
+#headers > p{
+    margin:0;
+    font-size:14px;
+    font-weight:300;
+}
+
+.navbar-item{
+    margin-left:50px;
+    font-weight:300;
+    font-size:14px;
+    cursor:pointer;
+}
+
+#navbar-right{
+    position:absolute;
+    right:0;
+}
+
+#navbar-right > button{
+    background:var(--brown);
+    border:none;
+    outline:none;
+    width:200px;
+    height:30px;
+    font-size:14px;
+    font-weight:300;
+    border-radius:15px;
+    box-shadow:0 0 10px 0 var(--dark-brown);
+    font-family:'Ubuntu';
+    cursor:pointer;
+}
+
+#banner-container{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+#banner-container > h1{
+    font-size:150px;
+    /*text-transform: uppercase;*/
+    margin:0;
+}
+
+#banner-container > h2{
+    font-size:24px;
+    letter-spacing:15px;
+    font-weight:100;
+    margin:0;
+    font-family:'Merriweather';
+}
+
+#banner-container > h2::before, #banner-container > h2::after{
+    content:'~~';
+    font-weight:900;
+    font-family:'Ubuntu';
+}
+
+#banner-container > p{
+    color:gray;
+    font-weight:300;
+    margin:10px 0;
+    font-size:14px;
+    width:50vw;
+}
+
+#banner-container > button{
+    width:250px;
+    margin:10px 0;
+    height:24px;
+    font-size:14ppx;
+    border-radius:5px;
+    border:1px solid lightgray;
+    background:#eee;
+    cursor:pointer;
+    transition-duration:500ms;
+    color:gray;
+}
+
+#banner-container > button:hover{
+    background:var(--brown);
+    border:1px solid var(--dark-brown);
+    color:black;
+}
+
+#banner-container > table{
+    margin-top:50px;
+    border:1px solid lightgray;
+    border-radius:35px;
+    background:#eee;
+}
+
+.product-img{
+    height:50px;
+    margin-right:10px;
+}
+
+.product-td{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 25px;
+    text-align:left;
+    height:75px;
+    width:180px;
+}
+
+.product-td:not(.product-td:first-of-type){
+    border-left:1px solid lightgray;
+}
+
+#product-row{
+    display:flex;
+}
+
+.product-header > h1{
+    margin:0;
+    font-size:24px;
+    font-weight:700;
+}
+
+.product-header > p{
+    margin:0;
+    font-size:14px;
+    font-weight:300;
+}
