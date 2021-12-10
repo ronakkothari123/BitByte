@@ -1,13 +1,19 @@
 :root{
+    --light-brown:#ffce94;
     --brown:#fcb043;
     --dark-brown:#e2791b;
     --light-blue:#def2fc;
+    --text-color:#fff;
+    --bg-color:#202020;
+    --border-color:#000;
 }
 
 body{
     margin:0;
     font-family:'Ubuntu';
     background:white;
+    overflow-x:hidden;
+    color:var(--text-color)
 }
 
 #navbar{
@@ -81,6 +87,10 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
+    background-image:url('./images/swamp.jpg');
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 
 #banner-container > h1{
@@ -117,8 +127,8 @@ body{
     height:24px;
     font-size:14ppx;
     border-radius:5px;
-    border:1px solid lightgray;
-    background:#eee;
+    border:1px solid var(--border-color);
+    background:var(--bg-color);
     cursor:pointer;
     transition-duration:500ms;
     color:gray;
@@ -130,11 +140,28 @@ body{
     color:black;
 }
 
-#banner-container > table{
+#banner-container > table:first-of-type{
     margin-top:50px;
-    border:1px solid lightgray;
+    border:1px solid var(--border-color);
     border-radius:35px;
+    background:var(--bg-color);
+}
+
+.product-button{
+    width:180px;
+    margin:10px 25px;
     background:#eee;
+    border:1px solid var(--border-color);
+    border-radius:10px;
+    color:gray;
+    cursor:pointer;
+    transition-duration:250ms;
+}
+
+.product-button:hover{
+    background:var(--brown);
+    border:1px solid var(--dark-brown);
+    color:black;
 }
 
 .product-img{
@@ -149,11 +176,11 @@ body{
     padding:0 25px;
     text-align:left;
     height:75px;
-    width:180px;
+    width:185px;
 }
 
 .product-td:not(.product-td:first-of-type){
-    border-left:1px solid lightgray;
+    border-left:1px solid var(--border-color);
 }
 
 #product-row{
@@ -170,4 +197,28 @@ body{
     margin:0;
     font-size:14px;
     font-weight:300;
+}
+
+#shape-1{
+    width:70vmax;
+    height:60vmax;
+    background:var(--light-brown);
+    position:absolute;
+    border-radius:50%;
+    z-index:-1;
+    top:-35vmax;
+    right:-35vmax;
+    box-shadow:inset 0 0 25px 0 gray;
+}
+
+#shape-2{
+    width:70vmax;
+    height:60vmax;
+    background:var(--light-brown);
+    position:absolute;
+    border-radius:50%;
+    z-index:-1;
+    bottom:-50vmax;
+    left:-50vmax;
+    box-shadow:inset 0 0 25px 0 gray;
 }
