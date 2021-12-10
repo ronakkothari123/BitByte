@@ -3,9 +3,13 @@
     --brown:#fcb043;
     --dark-brown:#e2791b;
     --light-blue:#def2fc;
-    --text-color:#fff;
-    --bg-color:#202020;
-    --border-color:#000;
+    --text-color:#000;
+    --bg-color:#eee;
+    --border-color:lightgray;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body{
@@ -13,7 +17,10 @@ body{
     font-family:'Ubuntu';
     background:white;
     overflow-x:hidden;
-    color:var(--text-color)
+    color:var(--text-color);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
 #navbar{
@@ -55,6 +62,8 @@ body{
     font-weight:300;
     font-size:14px;
     cursor:pointer;
+    color:var(--text-color);
+    text-decoration:none;
 }
 
 #navbar-right{
@@ -87,7 +96,7 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
-    background-image:url('./images/swamp.jpg');
+    background-image:url('./images/plains.jpg');
     background-position:center;
     background-repeat:no-repeat;
     background-size:cover;
@@ -95,7 +104,8 @@ body{
 
 #banner-container > h1{
     font-size:150px;
-    /*text-transform: uppercase;*/
+    /*text-transform: uppercase;
+    -webkit-text-stroke: 5px var(--bg-color);*/
     margin:0;
 }
 
@@ -199,26 +209,15 @@ body{
     font-weight:300;
 }
 
-#shape-1{
-    width:70vmax;
-    height:60vmax;
-    background:var(--light-brown);
+#bar{
+    background:black;
     position:absolute;
-    border-radius:50%;
-    z-index:-1;
-    top:-35vmax;
-    right:-35vmax;
-    box-shadow:inset 0 0 25px 0 gray;
+    width:100vw;
+    height:25px;
 }
 
-#shape-2{
-    width:70vmax;
-    height:60vmax;
-    background:var(--light-brown);
+#products-list{
     position:absolute;
-    border-radius:50%;
-    z-index:-1;
-    bottom:-50vmax;
-    left:-50vmax;
-    box-shadow:inset 0 0 25px 0 gray;
+    top:calc(100vh + 25px);
+    width:100vw;
 }
