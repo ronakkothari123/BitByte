@@ -1,0 +1,105 @@
+:root{
+    --bg-color:white;
+}
+
+body{
+    margin:0;
+    width:100vw;
+    height:100vh;
+    font-family:'Ubuntu';
+    display:flex;
+    flex-direction:row;
+    overflow:hidden;
+}
+
+.inactive-container{
+    display:none;
+}
+
+.active-container{
+    display:flex;
+}
+
+#main-container > div{
+    background:var(--bg-color);
+    width:55vw;
+    height:100vh;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+#main-container > div > h1{
+    margin:0;
+    font-size:50px;
+    font-weight:700;
+}
+
+#main-container > div > p{
+    margin:-5px 0 25px 0;
+    font-size:14px;
+    font-weight:300;
+}
+
+#main-container > div > form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#main-container > div > form > div{
+    position:relative;
+}
+
+#main-container > div > form > div > input{
+    width:40vw;
+    outline:none;
+    margin-bottom:25px;
+    height:40px;
+    border-radius:20px;
+    border:1px solid lightgray;
+    background:#eee;
+    text-align:center;
+    font-size:14px;
+    font-weight:300;
+    color:gray;
+    /*box-shadow:0 0 10px 0 gray;*/
+}
+
+#main-container > div > form > div > img{
+    filter: invert(25%) sepia(77%) saturate(1952%) hue-rotate(226deg) brightness(82%) contrast(97%);
+    position:absolute;
+    height:20px;
+    top:12px;
+    left:10px;
+}
+
+#main-container > div > form > input:last-of-type{
+    width:20vw;
+    height:30px;
+    border-radius:15px;
+    border:1px solid gray;
+    background:#000;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+#main-container > div > h6{
+    font-weight:300;
+    font-size:10px;
+}
+
+#main-container > div > h6 > span{
+    color:#3d43bf;
+    font-weight:700;
+    cursor:pointer;
+}
+
+#image-container{
+    width:45vw;
+    height:100vh;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+}
