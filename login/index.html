@@ -26,7 +26,7 @@
                 </div>
                 <div>
                     <img src="../icons/svgs/lock.svg" alt="">
-                    <input type="password" id="signin-username" placeholder="Password">
+                    <input type="password" id="signin-password" placeholder="Password">
                 </div>
                 <input type="submit" value="Sign In">
             </form>
@@ -38,15 +38,35 @@
             <form action="">
                 <div>
                     <img src="../icons/svgs/user.svg" alt="">
-                    <input type="text" id="signin-username" placeholder="Username">
+                    <input type="text" id="signup-username" placeholder="Username">
                 </div>
                 <div>
                     <img src="../icons/svgs/email.svg" alt="">
-                    <input type="text" id="signin-username" placeholder="Email">
+                    <input type="text" id="signup-email" placeholder="Email">
                 </div>
                 <div>
                     <img src="../icons/svgs/lock.svg" alt="">
-                    <input type="password" id="signin-username" placeholder="Password">
+                    <input type="password" id="signup-password" placeholder="Password">
+                </div>
+                <input type="button" value="Proceed To Next Step" onclick="toggleContainer(2)">
+            </form>
+            <h6>Already have an account? <span onclick="toggleContainer(0)">Login now</span>!</h6>
+        </div>
+        <div class="inactive-container sub-container">
+            <h1>Create Profile!</h1>
+            <p>Create Your Online Profile Below</p>
+            <form action="">
+                <div>
+                    <img src="../icons/svgs/user.svg" alt="">
+                    <input type="text" id="signup-name" placeholder="Full Display Name">
+                </div>
+                <div>
+                    <img src="../icons/svgs/phone.svg" alt="">
+                    <input type="text" id="signup-phone" placeholder="Phone Number">
+                </div>
+                <div>
+                    <img src="../icons/svgs/world.svg" alt="">
+                    <input type="text" id="signup-location" placeholder="Location">
                 </div>
                 <input type="submit" value="Create Account">
             </form>
@@ -54,5 +74,6 @@
         </div>
     </div>
     <div id="image-container"></div>
+    <p id="copyright">© BitByte Inc.</p>
 </body>
 </html>
