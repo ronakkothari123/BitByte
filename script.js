@@ -5,24 +5,11 @@ const gameNumber = 1;
 const cellSize = 40;
 
 let cellWidth, cellHeight, gamePlaying
-
-let player = {
-    x:0,
-    y:0,
-    color:"black",
-    width:1,
-    height:1
-}
-
-let computer = {
-    x:0,
-    y:0,
-    color:"black",
-    width:1,
-    height:1
-}
+let objects = [];
 
 function initGame(){
+
+    objects = [];
 
     if(window.innerWidth > window.innerHeight){
         canvas.width = window.innerHeight * 11/20;
@@ -47,21 +34,72 @@ function initGame(){
 }
 
 function pong(){
-    player.height = 4;
-    player.y = cellSize / 2 - Math.trunc(player.width / 2) - 1
-    player.x = 2;
 
-    computer.height = 4;
-    computer.y = cellSize / 2 - Math.trunc(player.width / 2) - 1
-    computer.x = cellSize - 3;
+    let player = {
+        x:2,
+        y:cellSize / 2 - 2,
+        color:"black",
+        width:1,
+        height:4
+    }
+    
+    let computer = {
+        x:cellSize - 3,
+        y:cellSize / 2 - 2,
+        color:"black",
+        width:1,
+        height:4
+    }
+    
+    let ball = {
+        x:cellSize / 2 - 1,
+        y:cellSize / 2 - 1,
+        color: "black",
+        width:1,
+        height:1,
+        xDir:-1,
+        yDir:0
+    }
+
+    objects.push(player)
+    objects.push(computer)
+    objects.push(ball)
 
     setInterval(pongClock, 100)
 }
 
 function pongClock(){
-    if(player.y < 0) player.y = 0;
-    if(player.y + player.height > cellSize) player.y = cellSize - player.height;
+    if(objects[0].y < 0) objects[0].y = 0;
+    if(objects[0].y + objects[0].height > cellSize) objects[0].y = cellSize - objects[0].height;
     
+    if(objects[2].y <= 0 || objects[2].y >= cellSize - 1) objects[2].yDir *= -1;
+
+    objects[2].x += objects[2].xDir
+    objects[2].y += objects[2].yDir
+    
+    if(objects[2].x == 3 && objects[2].y >= objects[0].y && objects[2].y < objects[0].y + objects[0].height){
+        objects[2].xDir *= -1;
+        if(objects[2].y - objects[0].y == 0) objects[2].yDir = -2;
+        if(objects[2].y - objects[0].y == 1) objects[2].yDir = -1;
+        if(objects[2].y - objects[0].y == 2) objects[2].yDir = 1;
+        if(objects[2].y - objects[0].y == 3) objects[2].yDir = 2;
+    } else if(objects[2].x == cellSize - 4 && objects[2].y >= objects[1].y && objects[2].y < objects[1].y + objects[1].height){
+        objects[2].xDir *= -1;
+        if(objects[2].y - objects[1].y == 0) objects[2].yDir = -2;
+        if(objects[2].y - objects[1].y == 1) objects[2].yDir = -1;
+        if(objects[2].y - objects[1].y == 2) objects[2].yDir = 1;
+        if(objects[2].y - objects[1].y == 3) objects[2].yDir = 2;
+    }
+
+    if(objects[1].y < objects[2].y) objects[1].y += 1;
+    else if(objects[1].y > objects[2].y) objects[1].y -= 1;
+
+    if(objects[2].x < 0 || objects[2].x > cellSize - 1){
+        objects[2].yDir *= 0;
+        objects[2].x = cellSize / 2 - 1
+        objects[2].y = cellSize / 2 - 1
+    }
+
     render()
 }
 
@@ -71,14 +109,12 @@ function render(){
     ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.fill();
 
-    ctx.fillStyle = player.color;
-    ctx.fillRect(player.x * cellWidth, player.y * cellHeight, player.width * cellWidth, player.height * cellHeight);
-    ctx.fill();
-    ctx.closePath();
+    for(let i = 0; i < objects.length; i++){
+        ctx.fillStyle = objects[i].color;
+        ctx.fillRect(objects[i].x * cellWidth, objects[i].y * cellHeight, objects[i].width * cellWidth, objects[i].height * cellHeight)
+        ctx.fill()
+    }
 
-    ctx.fillStyle = computer.color;
-    ctx.fillRect(computer.x * cellWidth, computer.y * cellHeight, computer.width * cellWidth, computer.height * cellHeight);
-    ctx.fill();
     ctx.closePath();
 }
 
@@ -110,15 +146,16 @@ function createProduct(color, name, desc, version){
 
 document.addEventListener('keydown', function(e){
     if(gamePlaying != undefined){
-        e.preventDefault()
         if(e.keyCode == 37){
-
+            e.preventDefault()
         } else if(e.keyCode == 38){
-            if(gamePlaying == 0) player.y -= 1;
+            e.preventDefault()
+            if(gamePlaying == 0) objects[0].y -= 1;
         } else if(e.keyCode == 39){
-            
+            e.preventDefault()
         } else if(e.keyCode == 40){
-            if(gamePlaying == 0) player.y += 1;
+            e.preventDefault()
+            if(gamePlaying == 0) objects[0].y += 1;
         }
     }
 })
@@ -137,6 +174,7 @@ window.addEventListener('resize', function(){
 
     cellWidth = canvas.width/cellSize;
     cellHeight = canvas.height/cellSize;
+    render();
 });
 
 createProduct("blue", "BitFolio", "An Online Social Media dedicated to showcase your personal achievements, advancements, qualifications, etc. The Best Online Hub for employees and employers everywhere!", "BETA")
