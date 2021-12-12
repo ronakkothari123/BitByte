@@ -1,6 +1,6 @@
 const containers = document.querySelectorAll('.sub-container');
 const imageContainer = document.getElementById('image-container')
-const images = ['../images/night.jpg', '../images/swamp.jpg', '../images/desert.jpg'];
+const images = ['../images/night.jpg', '../images/swamp.jpg', '../images/forest.jpg'];
 
 let activeContainer = 0;
 
