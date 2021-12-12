@@ -86,138 +86,118 @@ body{
 }
 
 #banner-container{
-    position:absolute;
-    top:0;
-    left:0;
+    background-image:url('./images/desert.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
     width:100vw;
-    height:100vh;
+    height:60vh;  
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
-    background-image:url('./images/plains.jpg');
-    background-position:center;
-    background-repeat:no-repeat;
-    background-size:cover;
+    position:relative;
+    color:black;
+}
+
+#canvas{
+    width:55vmin;
+    height:55vmin;
+    border:1px solid lightgray;
+    transition-duration:500ms;
+    background:white;
+    border-radius:5vmin;
+    opacity:0;
+}
+
+#game-button{
+    position:absolute;
+    background:white;
+    width:7.5vmin;
+    height:7.5vmin;
+    border-radius:2vmin;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    bottom:10px;
+    left:10px;
+    opacity:0.25;
+    transition-duration:500ms;
+}
+
+#game-button:hover{
+    opacity:1;
+}
+
+#game-button > img{
+    width:5vmin;
+}
+
+/*#banner-container > *{
+    margin:0;
 }
 
 #banner-container > h1{
-    font-size:150px;
-    /*text-transform: uppercase;
-    -webkit-text-stroke: 5px var(--bg-color);*/
-    margin:0;
-}
-
-#banner-container > h2{
-    font-size:24px;
-    letter-spacing:15px;
-    font-weight:100;
-    margin:0;
-    font-family:'Merriweather';
-}
-
-#banner-container > h2::before, #banner-container > h2::after{
-    content:'~~';
-    font-weight:900;
-    font-family:'Ubuntu';
+    font-size:75px;
 }
 
 #banner-container > p{
-    color:gray;
-    font-weight:300;
-    margin:10px 0;
-    font-size:14px;
-    width:50vw;
-}
-
-#banner-container > button{
-    width:250px;
-    margin:10px 0;
-    height:24px;
-    font-size:14ppx;
-    border-radius:5px;
-    border:1px solid var(--border-color);
-    background:var(--bg-color);
-    cursor:pointer;
-    transition-duration:500ms;
-    color:gray;
-}
-
-#banner-container > button:hover{
-    background:var(--brown);
-    border:1px solid var(--dark-brown);
-    color:black;
-}
-
-#banner-container > table:first-of-type{
-    margin-top:50px;
-    border:1px solid var(--border-color);
-    border-radius:35px;
-    background:var(--bg-color);
-}
-
-.product-button{
-    width:180px;
-    margin:10px 25px;
-    background:#eee;
-    border:1px solid var(--border-color);
-    border-radius:10px;
-    color:gray;
-    cursor:pointer;
-    transition-duration:250ms;
-}
-
-.product-button:hover{
-    background:var(--brown);
-    border:1px solid var(--dark-brown);
-    color:black;
-}
-
-.product-img{
-    height:50px;
-    margin-right:10px;
-}
-
-.product-td{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:0 25px;
-    text-align:left;
-    height:75px;
-    width:185px;
-}
-
-.product-td:not(.product-td:first-of-type){
-    border-left:1px solid var(--border-color);
-}
-
-#product-row{
-    display:flex;
-}
-
-.product-header > h1{
-    margin:0;
     font-size:24px;
-    font-weight:700;
+    font-family:'Merriweather';
+}*/
+
+#product-list{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    width:100vw;
+    margin-top:25px;
 }
 
-.product-header > p{
-    margin:0;
+.product-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+    border:1px solid lightgray;
+    padding:25px;
+    border-radius:25px;
+    background:#eee;
+    max-width:175px;
+    margin:0 10px 75px 10px;
+}
+
+.product-item > img{
+    height:50px;
+}
+
+.product-item > p{
+    position:absolute;
+    font-size:12px;
+    background:#eee;
+    border:1px soild lightgray;
+    padding:5px 10px;
+    border-radius:5px;
+    bottom:-50px;
+    color:gray;
+}
+
+.product-item > div{
+    text-align:center;
+}
+
+.product-item > div > h1{
+    font-size:24px;
+    margin:10px 0;
+}
+
+.product-item > div > p{
     font-size:14px;
     font-weight:300;
-}
-
-#bar{
-    background:black;
-    position:absolute;
-    width:100vw;
-    height:25px;
-}
-
-#products-list{
-    position:absolute;
-    top:calc(100vh + 25px);
-    width:100vw;
+    color:gray;
+    margin:0;
 }
