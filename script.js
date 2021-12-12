@@ -3,10 +3,8 @@ const ctx = canvas.getContext('2d')
 
 const gameNumber = 1;
 const cellSize = 40;
-const cellWidth = canvas.width/cellSize;
-const cellHeight = canvas.height/cellSize;
 
-let gamePlaying = undefined;
+let cellWidth, cellHeight, gamePlaying
 
 let player = {
     x:0,
@@ -37,6 +35,9 @@ function initGame(){
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
+    cellWidth = canvas.width/cellSize;
+    cellHeight = canvas.height/cellSize;
+
     canvas.style.opacity = 0.75;
 
     gamePlaying = Math.trunc(Math.random() * gameNumber);
@@ -52,7 +53,7 @@ function pong(){
 
     computer.height = 4;
     computer.y = cellSize / 2 - Math.trunc(player.width / 2) - 1
-    computer.x = cellSize - 2;
+    computer.x = cellSize - 3;
 
     setInterval(pongClock, 100)
 }
