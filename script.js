@@ -60,7 +60,8 @@ function pong(){
 
 function pongClock(){
     if(player.y < 0) player.y = 0;
-    if(player.y > cellSize) player.y = cellSize;
+    if(player.y + player.height > cellSize) player.y = cellSize - player.height;
+    
     render()
 }
 
@@ -121,6 +122,22 @@ document.addEventListener('keydown', function(e){
         }
     }
 })
+
+window.addEventListener('resize', function(){
+    if(window.innerWidth > window.innerHeight){
+        canvas.width = window.innerHeight * 11/20;
+        canvas.height = window.innerHeight * 11/20;
+    } else {
+        canvas.width = window.innerWidth * 11/20;
+        canvas.height = window.innerWidth * 11/20;
+    }
+    
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    cellWidth = canvas.width/cellSize;
+    cellHeight = canvas.height/cellSize;
+});
 
 createProduct("blue", "BitFolio", "An Online Social Media dedicated to showcase your personal achievements, advancements, qualifications, etc. The Best Online Hub for employees and employers everywhere!", "BETA")
 createProduct("purple", "BitSports", "Online Fantasy Sports platform for players around the world. Is not constricted to one location, and is free to play! It is The Number One Fantasy Sport application in the world!", "ALPHA")
