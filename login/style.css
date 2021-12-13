@@ -112,3 +112,18 @@ body{
     font-size:12px;
     color:white;
 }
+
+#back-btn{
+    position:absolute;
+    z-index:1;
+    bottom:10px;
+    left:10px;
+    transform:rotate(180deg) scaleX(-1);
+    filter:invert(1);
+    background:white;
+    width:30px;
+    padding:5px;
+    border-radius:50%;
+    box-shadow:0 0 10px 0 gray;
+    cursor:pointer;
+}
