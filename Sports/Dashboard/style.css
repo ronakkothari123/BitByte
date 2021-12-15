@@ -166,6 +166,7 @@ body{
     height:calc(100vh - 125px);
     width:calc(100vw - 290px);
     padding:25px 25px;
+    overflow-y:scroll;
 }
 
 #main-container > div > h1{
@@ -190,22 +191,32 @@ body{
 
 #drafts > div{
     margin:10px;
+    border:1px solid gray;
+    transition-duration:250ms;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+#drafts > div:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px 0 gray;
 }
 
 #drafts > div > div:first-of-type{
     background-image:url('https://cdn.vox-cdn.com/thumbor/X0BcMsovx2iiZvMrSc4bgQk5y-g=/0x0:1200x800/1200x800/filters:focal(504x304:696x496)/cdn.vox-cdn.com/uploads/chorus_image/image/70203570/Week12WinnersLosers_AP_Ringer.0.jpeg');
     background-repeat:no-repeat;
     background-size:cover;
-    background-position:top;
+    background-position:center;
     width:250px;
-    height:150px;
-    border-radius:75px 75px 5px 5px;
+    height:200px;
+    /*border-radius:75px 75px 5px 5px;*/
 }
 
 #drafts > div > div:nth-of-type(2){
     display:flex;
     flex-direction:column;
     align-items:center;
+    background:white;
 }
 
 #drafts > div > div:nth-of-type(2) > div{
@@ -260,11 +271,13 @@ body{
 }
 
 #drafts > div > div:last-of-type{
-    background-image:url('https://cdn.vox-cdn.com/thumbor/X0BcMsovx2iiZvMrSc4bgQk5y-g=/0x0:1200x800/1200x800/filters:focal(504x304:696x496)/cdn.vox-cdn.com/uploads/chorus_image/image/70203570/Week12WinnersLosers_AP_Ringer.0.jpeg');
+    /*background-image:url('https://cdn.vox-cdn.com/thumbor/X0BcMsovx2iiZvMrSc4bgQk5y-g=/0x0:1200x800/1200x800/filters:focal(504x304:696x496)/cdn.vox-cdn.com/uploads/chorus_image/image/70203570/Week12WinnersLosers_AP_Ringer.0.jpeg');
     background-repeat:no-repeat;
     background-size:cover;
     background-position:bottom;
     width:250px;
     height:75px;
-    border-radius:5px 5px 75px 75px;
+    filter:blur(2px);
+    border-radius:5px 5px 75px 75px;*/
+    display:none;
 }

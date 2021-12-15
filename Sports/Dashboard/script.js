@@ -1,4 +1,4 @@
-const sportsList = ['cricket', 'football', 'basketball']
+const sportsList = ['cricket', 'football', 'basketball', 'soccer']
 
 function createFantasyLeague(sportIndex, name, prize, competing, image){
     let newDiv = document.createElement('div')
@@ -30,7 +30,7 @@ function createFantasyLeague(sportIndex, name, prize, competing, image){
     headerDiv.appendChild(childDiv)
 
     para.innerHTML = competing + " People Competing"
-    btn.innerHTML = "Join Draft"
+    btn.innerHTML = "Join League"
 
     secondDiv.appendChild(headerDiv)
     secondDiv.appendChild(para)
@@ -41,8 +41,9 @@ function createFantasyLeague(sportIndex, name, prize, competing, image){
     newDiv.appendChild(thirdDiv)
 
     document.getElementById('drafts').appendChild(newDiv);
-    console.log('done')
 }
 
-createFantasyLeague(0, "IPL 2022 Cup", "1 Ultimate Trophy", 4567837, "https://pbs.twimg.com/media/E9FpDDFXsAAqkbR.jpg")
-createFantasyLeague(2, "NBA 2022 Champions", "1 Ultimate Trophy", 12, "https://cdn.nba.com/manage/2021/10/3point-lead-graphic.png")
+createFantasyLeague(1, "NFL 2022 Fantasy", "1 Ultimate Trophy", 7284854, "https://cdn.vox-cdn.com/thumbor/X0BcMsovx2iiZvMrSc4bgQk5y-g=/0x0:1200x800/1200x800/filters:focal(504x304:696x496)/cdn.vox-cdn.com/uploads/chorus_image/image/70203570/Week12WinnersLosers_AP_Ringer.0.jpeg")
+createFantasyLeague(0, "IPL 2022 Cup", "1 Silver Trophy", 4567837, "https://pbs.twimg.com/media/E9FpDDFXsAAqkbR.jpg")
+createFantasyLeague(2, "NBA 2022 Fantasy", "1 Ultimate Trophy", 12, "https://cdn.nba.com/manage/2021/10/3point-lead-graphic.png")
+createFantasyLeague(3, "MLS 2024 World Cup", "1 Ultimate Trophy", 14843725, "https://fcwallpaper.com/wp-content/uploads/2021/03/MLS-For-Desktop-Wallpaper.jpg")
