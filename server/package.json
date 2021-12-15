@@ -15,6 +15,7 @@
         "@mikro-orm/cli": "^4.5.9",
         "@mikro-orm/core": "^4.5.9",
         "@mikro-orm/postgresql": "^4.5.9",
+        "argon2": "^0.28.3",
         "express": "^4.17.1",
         "pg": "^8.7.1",
         "ts-node": "^10.4.0"

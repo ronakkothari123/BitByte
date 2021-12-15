@@ -20,6 +20,7 @@ const main = async () => {
 
     Context.em = orm.em;
 
+    app.use(express.json());
     app.listen(PORT, () => {
         console.log(`Alive on http://localhost:${PORT}`);
     });

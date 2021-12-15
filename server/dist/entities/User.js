@@ -18,27 +18,27 @@ let User = class User {
     }
 };
 __decorate([
-    (0, core_1.PrimaryKey)(),
+    core_1.PrimaryKey(),
     __metadata("design:type", Number)
 ], User.prototype, "id", void 0);
 __decorate([
-    (0, core_1.Property)({ type: "date" }),
+    core_1.Property({ type: "date" }),
     __metadata("design:type", Object)
 ], User.prototype, "createdAt", void 0);
 __decorate([
-    (0, core_1.Property)({ type: "date", onUpdate: () => new Date() }),
+    core_1.Property({ type: "date", onUpdate: () => new Date() }),
     __metadata("design:type", Object)
 ], User.prototype, "updatedAt", void 0);
 __decorate([
-    (0, core_1.Property)({ type: "text" }),
+    core_1.Property({ type: "text" }),
     __metadata("design:type", String)
 ], User.prototype, "username", void 0);
 __decorate([
-    (0, core_1.Property)({ type: "text" }),
+    core_1.Property({ type: "text" }),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 User = __decorate([
-    (0, core_1.Entity)()
+    core_1.Entity()
 ], User);
 exports.User = User;
 //# sourceMappingURL=User.js.map
