@@ -26,7 +26,8 @@ body{
 }
 
 #sidebar{
-    background:#310b59;
+    /*background:#310b59;*/
+    background:#101010;
     width:200px;
     height:100vh;
     color:white;
@@ -42,7 +43,9 @@ body{
     flex-direction:row;
     align-items:center;
     font-size:14px;
+    font-weight:300;
     padding:10px 20px;
+    cursor:pointer;
 }
 
 #sidebar > li > img{
@@ -60,7 +63,7 @@ body{
 }
 
 .active-sidebar {
-    background:#3f0c6e;
+    background:#202020;
 }
 
 #navbar {
@@ -87,6 +90,7 @@ body{
 #profile > img{
     height:30px;
     margin-right:5px;
+    cursor:pointer;
 }
 
 #profile > div > p{
@@ -131,4 +135,136 @@ body{
     top:0px;
     right:0;
     border-radius:50%;
+}
+
+#search-input{
+    width:calc(100vw - 595px);
+    background:#f6f3f9;
+    border:1px solid lightgray;
+    border-radius:5px;
+    padding-left:10px;
+    outline:none;
+    font-size:12px;
+    height:20px;
+    font-weight:300;
+}
+
+#search{
+    margin:0 25px 0 10px;
+    background:var(--brown);
+    border:1px solid var(--dark-brown);
+    padding:3px 10px;
+    font-size:12px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+#main-container{
+    position:absolute;
+    bottom:0;
+    right:0;
+    height:calc(100vh - 125px);
+    width:calc(100vw - 290px);
+    padding:25px 25px;
+}
+
+#main-container > div > h1{
+    margin:0;
+    font-size:24px;
+}
+
+.container:not(.active-container){
+    display:none;
+}
+
+.active-container {
+    display:flex;
+}
+
+#drafts{
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:flex-start;
+    flex-wrap:wrap;
+}
+
+#drafts > div{
+    margin:10px;
+}
+
+#drafts > div > div:first-of-type{
+    background-image:url('https://cdn.vox-cdn.com/thumbor/X0BcMsovx2iiZvMrSc4bgQk5y-g=/0x0:1200x800/1200x800/filters:focal(504x304:696x496)/cdn.vox-cdn.com/uploads/chorus_image/image/70203570/Week12WinnersLosers_AP_Ringer.0.jpeg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:top;
+    width:250px;
+    height:150px;
+    border-radius:75px 75px 5px 5px;
+}
+
+#drafts > div > div:nth-of-type(2){
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#drafts > div > div:nth-of-type(2) > div{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    margin:25px 0 10px 0;
+}
+
+#drafts > div > div:nth-of-type(2) > div > img{
+    height:30px;
+    margin-right:5px;
+}
+
+#drafts > div > div:nth-of-type(2) > div > div > h1{
+    font-size:20px;
+    margin:0;
+    font-weight:500;
+}
+
+#drafts > div > div:nth-of-type(2) > div > div > p{
+    font-size:12px;
+    margin:0;
+    font-weight:300;
+}
+
+#drafts > div > div:nth-of-type(2) > p{
+    font-size:12px;
+    font-weight:300;
+    margin:0;
+    margin-top:5px;
+}
+
+#drafts > div > div:nth-of-type(2) > button{
+    font-size:12px;
+    font-weight:300;
+    margin:10px 0;
+    width:200px;
+    font-size:12px;
+    height:20px;
+    border:1px solid lightgray;
+    background:white;
+    border-radius:10px;
+    transition-duration:250ms;
+    cursor:pointer;
+}
+
+#drafts > div > div:nth-of-type(2) > button:hover{
+    background:var(--brown);
+    border:1px solid var(--dark-brown);
+    color:white;
+}
+
+#drafts > div > div:last-of-type{
+    background-image:url('https://cdn.vox-cdn.com/thumbor/X0BcMsovx2iiZvMrSc4bgQk5y-g=/0x0:1200x800/1200x800/filters:focal(504x304:696x496)/cdn.vox-cdn.com/uploads/chorus_image/image/70203570/Week12WinnersLosers_AP_Ringer.0.jpeg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:bottom;
+    width:250px;
+    height:75px;
+    border-radius:5px 5px 75px 75px;
 }
