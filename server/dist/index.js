@@ -9,7 +9,7 @@ const core_1 = require("@mikro-orm/core");
 const mikro_orm_config_1 = __importDefault(require("./mikro-orm.config"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const user_1 = __importDefault(require("./routers/user"));
-const app = (0, express_1.default)();
+const app = express_1.default();
 const PORT = 5000;
 dotenv_1.default.config();
 exports.Context = {
@@ -18,6 +18,7 @@ exports.Context = {
 const main = async () => {
     const orm = await core_1.MikroORM.init(mikro_orm_config_1.default);
     exports.Context.em = orm.em;
+    app.use(express_1.default.json());
     app.listen(PORT, () => {
         console.log(`Alive on http://localhost:${PORT}`);
     });
