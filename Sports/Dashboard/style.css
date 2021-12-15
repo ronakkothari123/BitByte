@@ -1,0 +1,64 @@
+:root{
+    --light-brown:#d094ff;
+    --brown:#b343fc;
+    --dark-brown:#7c1be2;
+    --light-blue:#def2fc;
+    --text-color:#000;
+    --bg-color:#eee;
+    --border-color:lightgray;
+}
+
+.accent{
+    color:vaR(--brown);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin:0;
+    font-family:'Ubuntu';
+    background:#f6f3f9;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    color:var(--text-color);
+}
+
+#sidebar{
+    background:#310b59;
+    width:200px;
+    height:100vh;
+    color:white;
+    margin:0;
+    position:absolute;
+    top:0;
+}
+
+#sidebar > li{
+    list-style-type:none;
+    margin-left:-40px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    font-size:14px;
+    padding:10px 20px;
+}
+
+#sidebar > li > img{
+    height:20px;
+}
+
+#sidebar > li:first-of-type > img{
+    height:35px;
+    margin-right:5px;
+}
+
+#sidebar > li:first-of-type > h1{
+    font-size:28px;
+    margin:10px 0
+}
+
+.active-sidebar {
+    background:#3f0c6e;
+}
