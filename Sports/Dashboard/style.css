@@ -62,3 +62,73 @@ body{
 .active-sidebar {
     background:#3f0c6e;
 }
+
+#navbar {
+    background:white;
+    position:absolute;
+    top:0;
+    right:0;
+    width:calc(100vw - 240px);
+    height:75px;
+    display:flex;
+    flex-direction:row-reverse;
+    align-items:center;
+    justify-content:flex-start;
+    border-bottom:1px solid lightgray;
+}
+
+#profile{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    margin:0 25px
+}
+
+#profile > img{
+    height:30px;
+    margin-right:5px;
+}
+
+#profile > div > p{
+    font-size:14px;
+    font-weight:500;
+    margin:0;
+}
+
+#profile > div > div{
+    display:flex;
+    flex-direction:row;
+}
+
+#profile > div > div > p{
+    font-size:12px;
+    font-weight:300;
+    margin:0;
+}
+
+#profile > div{
+    display:flex;
+    flex-direction:column;
+}
+
+#profile > div > div > img{
+    filter: invert(43%) sepia(82%) saturate(4939%) hue-rotate(258deg) brightness(98%) contrast(101%);
+    height:14px;
+}
+
+#notifs {position:relative;}
+
+#notifs > img{
+    height:20px;
+    cursor:pointer;
+}
+
+#notifs > div{
+    width:8px;
+    height:8px;
+    background:var(--brown);
+    position:absolute;
+    top:0px;
+    right:0;
+    border-radius:50%;
+}
