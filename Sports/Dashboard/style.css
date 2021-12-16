@@ -258,15 +258,15 @@ body{
     font-size:12px;
     height:20px;
     border:1px solid lightgray;
-    background:white;
+    background:#eee;
     border-radius:10px;
     transition-duration:250ms;
     cursor:pointer;
 }
 
 #drafts > div > div:nth-of-type(2) > button:hover{
-    background:var(--brown);
-    border:1px solid var(--dark-brown);
+    background:#101010;
+    border:1px solid black;
     color:white;
 }
 
