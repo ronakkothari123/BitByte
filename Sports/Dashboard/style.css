@@ -25,6 +25,27 @@ body{
     color:var(--text-color);
 }
 
+::-webkit-scrollbar {
+    width: 14px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background:#eee;
+    border:1px solid lightgray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ccc; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #aaa; 
+}
+
 #sidebar{
     /*background:#310b59;*/
     background:#101010;
