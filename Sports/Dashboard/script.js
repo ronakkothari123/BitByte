@@ -62,4 +62,4 @@ createFantasyLeague(2, "NBA 2022 Fantasy", "1 Ultimate Trophy", 12, "https://cdn
 createFantasyLeague(3, "FIFA 2022 World Cup", "1 Ultimate Trophy", 14843725, "https://static.standard.co.uk/2021/05/21/19/newFile.jpg?width=968&auto=webp&quality=75&crop=968%3A645%2Csmart")
 createFantasyLeague(0, "ICC T20 World Cup", "1 Ultimate Trophy", 982374, "https://pbs.twimg.com/media/E9FpDDFXsAAqkbR.jpg");
 
-toggleContainer(0)
+toggleContainer(4)

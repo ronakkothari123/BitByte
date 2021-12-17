@@ -302,3 +302,62 @@ body{
     border-radius:5px 5px 75px 75px;*/
     display:none;
 }
+
+#version-num{
+    position:absolute;
+    right:25px;
+    background:#eee;
+    padding:5px 10px;
+    font-size:12px;
+    border-radius:5px;
+    border:1px solid lightgray;
+}
+
+#help-info{
+    display:flex;
+    flex-direction:column;
+}
+
+#help-info > *:not(#version-num){
+    width:calc(80vw - 250px);
+}
+
+#help-info > h1{
+    margin:0;
+    font-weight:700;
+    font-size:9px;
+}
+
+#help-info > p{
+    margin:12px 0;
+    font-size:14px;
+    font-weight:300;
+}
+
+li{
+    font-size:14px;
+    font-weight:300;
+}
+
+ol{
+    margin:6px 0;
+}
+
+#help-info > h6{
+    margin:0;
+    font-weight:300;
+    color:gray;
+    font-size:12px;
+}
+
+#help-info > h2{
+    font-size:20px;
+    font-weight:300;
+    margin:0;
+    color:gray;
+}
+
+#help-info > h2::before{
+    content:'~';
+    margin-right:10px;
+}
