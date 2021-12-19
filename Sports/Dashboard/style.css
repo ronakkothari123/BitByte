@@ -314,7 +314,6 @@ body{
 }
 
 #help-info{
-    display:flex;
     flex-direction:column;
 }
 
