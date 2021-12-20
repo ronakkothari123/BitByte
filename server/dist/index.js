@@ -9,6 +9,8 @@ const core_1 = require("@mikro-orm/core");
 const mikro_orm_config_1 = __importDefault(require("./mikro-orm.config"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const user_1 = __importDefault(require("./routers/user"));
+const express_session_1 = __importDefault(require("express-session"));
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const app = express_1.default();
 const PORT = 5000;
 dotenv_1.default.config();
@@ -16,9 +18,16 @@ exports.Context = {
     em: undefined,
 };
 const main = async () => {
+    var _a;
     const orm = await core_1.MikroORM.init(mikro_orm_config_1.default);
     exports.Context.em = orm.em;
     app.use(express_1.default.json());
+    app.use(cookie_parser_1.default());
+    app.use(express_session_1.default({
+        secret: (_a = process.env.COOKIE_SECRET) !== null && _a !== void 0 ? _a : "",
+        resave: false,
+        saveUninitialized: false,
+    }));
     app.listen(PORT, () => {
         console.log(`Alive on http://localhost:${PORT}`);
     });
