@@ -48,12 +48,18 @@ function createFantasyLeague(sportIndex, name, prize, competing, image){
 }
 
 function toggleContainer(num){
+    if(activeContainer == 0) containers[activeContainer].classList.remove('active-grid');
+    else containers[activeContainer].classList.remove('active-container');
+
     sidebars[activeContainer].classList.remove('active-sidebar');
-    containers[activeContainer].classList.remove('active-container');
     sidebars[num].classList.add('active-sidebar');
-    containers[num].classList.add('active-container')
+    
+    if(num == 0) containers[num].classList.add('active-grid')
+    else containers[num].classList.add('active-container')
 
     activeContainer = num;
+
+    console.log(containers[0].classList)
 }
 
 createFantasyLeague(1, "NFL 2022 Fantasy", "1 Ultimate Trophy", 7284854, "https://cdn.vox-cdn.com/thumbor/X0BcMsovx2iiZvMrSc4bgQk5y-g=/0x0:1200x800/1200x800/filters:focal(504x304:696x496)/cdn.vox-cdn.com/uploads/chorus_image/image/70203570/Week12WinnersLosers_AP_Ringer.0.jpeg")
@@ -63,14 +69,3 @@ createFantasyLeague(3, "FIFA 2022 World Cup", "1 Ultimate Trophy", 14843725, "ht
 createFantasyLeague(0, "ICC T20 World Cup", "1 Silver Trophy", 982374, "https://pbs.twimg.com/media/E9FpDDFXsAAqkbR.jpg");
 
 toggleContainer(0)
-
-document.querySelectorAll('.dashboard-item')[0].style.backgroundImage = "linear-gradient(black, black), url('https://besthqwallpapers.com/Uploads/22-6-2020/136576/thumb2-mark-ingram-jr-baltimore-ravens-nfl-american-football-portrait.jpg')"
-document.querySelectorAll('.dashboard-item')[1].style.backgroundImage = "linear-gradient(black, black), url('https://besthqwallpapers.com/Uploads/18-6-2020/136564/thumb2-sterling-shepard-4k-wide-receiver-new-york-giants-american-football.jpg')"
-document.querySelectorAll('.dashboard-item')[2].style.backgroundImage = "linear-gradient(black, black), url('https://besthqwallpapers.com/Uploads/22-6-2020/136576/thumb2-mark-ingram-jr-baltimore-ravens-nfl-american-football-portrait.jpg')"
-document.querySelectorAll('.dashboard-item')[3].style.backgroundImage = "linear-gradient(black, black), url('https://besthqwallpapers.com/Uploads/22-6-2020/136576/thumb2-mark-ingram-jr-baltimore-ravens-nfl-american-football-portrait.jpg')"
-document.querySelectorAll('.dashboard-item')[4].style.backgroundImage = "linear-gradient(black, black), url('https://besthqwallpapers.com/Uploads/22-6-2020/136576/thumb2-mark-ingram-jr-baltimore-ravens-nfl-american-football-portrait.jpg')"
-document.querySelectorAll('.dashboard-item')[5].style.backgroundImage = "linear-gradient(black, black), url('https://besthqwallpapers.com/Uploads/18-6-2020/136564/thumb2-sterling-shepard-4k-wide-receiver-new-york-giants-american-football.jpg')"
-document.querySelectorAll('.dashboard-item')[6].style.backgroundImage = "linear-gradient(black, black), url('https://besthqwallpapers.com/Uploads/18-6-2020/136564/thumb2-sterling-shepard-4k-wide-receiver-new-york-giants-american-football.jpg')"
-document.querySelectorAll('.dashboard-item')[7].style.backgroundImage = "linear-gradient(black, black), url('https://besthqwallpapers.com/Uploads/18-6-2020/136564/thumb2-sterling-shepard-4k-wide-receiver-new-york-giants-american-football.jpg')"
-document.querySelectorAll('.dashboard-item')[8].style.backgroundImage = "linear-gradient(black, black), url('https://besthqwallpapers.com/Uploads/18-6-2020/136564/thumb2-sterling-shepard-4k-wide-receiver-new-york-giants-american-football.jpg')"
-document.querySelectorAll('.dashboard-item')[9].style.backgroundImage = "linear-gradient(black, black), url('https://besthqwallpapers.com/Uploads/18-6-2020/136564/thumb2-sterling-shepard-4k-wide-receiver-new-york-giants-american-football.jpg')"
