@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetOne = exports.Register = exports.GetAllUsers = void 0;
+exports.Me = exports.DeleteUser = exports.Login = exports.GetOne = exports.Register = exports.GetAllUsers = void 0;
 const index_1 = require("../index");
 const User_1 = require("../entities/User");
 const argon2_1 = __importDefault(require("argon2"));
@@ -19,7 +19,7 @@ const Register = async (req, res) => {
             errors: [
                 {
                     field: "username",
-                    message: "username cannont be empty",
+                    message: "username cannot be empty",
                 },
             ],
         });
@@ -41,6 +41,7 @@ const Register = async (req, res) => {
         password: hashedPassword,
     });
     index_1.Context.em.persistAndFlush(user);
+    req.session.user = user;
     res.json({ name: user.username });
 };
 exports.Register = Register;
@@ -54,4 +55,73 @@ const GetOne = async (req, res) => {
     res.json({ name: user.username });
 };
 exports.GetOne = GetOne;
+const Login = async (req, res) => {
+    var _a;
+    const { username, password } = req.body;
+    const user = await ((_a = index_1.Context.em) === null || _a === void 0 ? void 0 : _a.findOne(User_1.User, { username }));
+    if (!user) {
+        res.json({
+            errors: [
+                {
+                    field: "username",
+                    message: "that username does not exist",
+                },
+            ],
+        });
+        return;
+    }
+    const valid = await argon2_1.default.verify(user.password, password);
+    if (!valid) {
+        res.json({
+            errors: [
+                {
+                    field: "password",
+                    message: "incorrect password",
+                },
+            ],
+        });
+        return;
+    }
+    req.session.user = user;
+    res.json({ name: user.username, id: user.id }).status(200);
+};
+exports.Login = Login;
+const DeleteUser = async (req, res) => {
+    var _a, _b;
+    const { username, password } = req.body;
+    const user = await ((_a = index_1.Context.em) === null || _a === void 0 ? void 0 : _a.findOne(User_1.User, { username }));
+    if (!user) {
+        res.json({
+            successful: false,
+            errors: [
+                {
+                    field: "username",
+                    message: "that username does not exist",
+                },
+            ],
+        });
+        return;
+    }
+    const valid = await argon2_1.default.verify(user.password, password);
+    if (!valid) {
+        res.json({
+            successful: false,
+            errors: [
+                {
+                    field: "password",
+                    message: "incorrect password",
+                },
+            ],
+        });
+        return;
+    }
+    await ((_b = index_1.Context.em) === null || _b === void 0 ? void 0 : _b.nativeDelete(User_1.User, { username }));
+    res.json({ successful: true });
+};
+exports.DeleteUser = DeleteUser;
+const Me = async (req, res) => {
+    var _a;
+    res.json({ username: (_a = req.session.user) === null || _a === void 0 ? void 0 : _a.username });
+};
+exports.Me = Me;
 //# sourceMappingURL=user.js.map

@@ -3,6 +3,12 @@ import { Context } from "../index";
 import { User } from "../entities/User";
 import argon2 from "argon2";
 
+declare module "express-session" {
+    export interface SessionData {
+        user: User | null;
+    }
+}
+
 export const GetAllUsers = async (_: Request, res: Response) => {
     const users = await Context.em!.find(User, {});
 
@@ -17,7 +23,7 @@ export const Register = async (req: Request, res: Response) => {
             errors: [
                 {
                     field: "username",
-                    message: "username cannont be empty",
+                    message: "username cannot be empty",
                 },
             ],
         });
@@ -44,6 +50,8 @@ export const Register = async (req: Request, res: Response) => {
 
     Context.em!.persistAndFlush(user);
 
+    req.session.user = user;
+
     res.json({ name: user.username });
 };
 
@@ -58,4 +66,83 @@ export const GetOne = async (req: Request, res: Response) => {
     }
 
     res.json({ name: user!.username });
+};
+
+export const Login = async (req: Request, res: Response) => {
+    const { username, password } = req.body;
+
+    const user = await Context.em?.findOne(User, { username });
+
+    if (!user) {
+        res.json({
+            errors: [
+                {
+                    field: "username",
+                    message: "that username does not exist",
+                },
+            ],
+        });
+        return;
+    }
+
+    const valid = await argon2.verify(user.password, password);
+
+    if (!valid) {
+        res.json({
+            errors: [
+                {
+                    field: "password",
+                    message: "incorrect password",
+                },
+            ],
+        });
+        return;
+    }
+
+    req.session.user = user;
+
+    res.json({ name: user.username, id: user.id }).status(200);
+};
+
+export const DeleteUser = async (req: Request, res: Response) => {
+    const { username, password } = req.body;
+
+    const user = await Context.em?.findOne(User, { username });
+
+    if (!user) {
+        res.json({
+            successful: false,
+            errors: [
+                {
+                    field: "username",
+                    message: "that username does not exist",
+                },
+            ],
+        });
+        return;
+    }
+
+    const valid = await argon2.verify(user.password, password);
+
+    if (!valid) {
+        res.json({
+            successful: false,
+            errors: [
+                {
+                    field: "password",
+                    message: "incorrect password",
+                },
+            ],
+        });
+        return;
+    }
+
+    await Context.em?.nativeDelete(User, { username });
+
+    res.json({ successful: true });
+};
+
+export const Me = async (req: Request, res: Response) => {
+    // res.json({ user: req.session.user });
+    res.json({ username: req.session.user?.username });
 };
