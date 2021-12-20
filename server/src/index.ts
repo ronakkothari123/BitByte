@@ -5,6 +5,8 @@ import mikroOrmConfig from "./mikro-orm.config";
 import dotenv from "dotenv";
 import { MyContext } from "./types";
 import userRouter from "./routers/user";
+import session from "express-session";
+import cookieParser from "cookie-parser";
 
 const app = express();
 const PORT = 5000;
@@ -21,6 +23,15 @@ const main = async () => {
     Context.em = orm.em;
 
     app.use(express.json());
+    app.use(cookieParser());
+    app.use(
+        session({
+            secret: process.env.COOKIE_SECRET ?? "",
+            resave: false,
+            saveUninitialized: false,
+        })
+    );
+
     app.listen(PORT, () => {
         console.log(`Alive on http://localhost:${PORT}`);
     });
