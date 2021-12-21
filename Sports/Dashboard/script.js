@@ -48,14 +48,12 @@ function createFantasyLeague(sportIndex, name, prize, competing, image){
 }
 
 function toggleContainer(num){
-    if(activeContainer == 0) containers[activeContainer].classList.remove('active-grid');
-    else containers[activeContainer].classList.remove('active-container');
+    containers[activeContainer].classList.remove('active-container');
 
     sidebars[activeContainer].classList.remove('active-sidebar');
     sidebars[num].classList.add('active-sidebar');
     
-    if(num == 0) containers[num].classList.add('active-grid')
-    else containers[num].classList.add('active-container')
+    containers[num].classList.add('active-container')
 
     activeContainer = num;
 

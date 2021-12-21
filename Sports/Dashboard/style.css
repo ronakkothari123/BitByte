@@ -57,7 +57,7 @@ body{
     top:0;
 }
 
-#sidebar > li{
+#sidebar > li:not(.invisible-sidebar){
     list-style-type:none;
     margin-left:-40px;
     display:flex;
@@ -201,12 +201,6 @@ body{
 
 .active-container {
     display:flex;
-}
-
-.active-grid {
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:25px;
 }
 
 #drafts{
@@ -367,108 +361,46 @@ ol{
     margin-right:10px;
 }
 
-.green{
-    color:#52fc43;
-    font-weight:900;
+.invisible-sidebar{
+    display:none;
 }
 
-.red{
-    font-weight:900;
-    color:#fc4343;
-}
-
-.dashboard-item{
-    color:black;
-    border-radius:10px;
-    position:relative;
+#dashboard-main{
     padding:25px;
-    box-shadow:0 0 10px 0 gray;
+    background:linear-gradient(to right, var(--brown) 0%, var(--dark-brown) 100%);
+    width:calc(100vw - 250px);
+    border-radius:25px;
 }
 
-.dashboard-item > div:first-of-type{
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-}
-
-.dashboard-item > div:first-of-type > img{
-    height:20px
-}
-
-.dashboard-item > div:first-of-type > p{
-    margin:0;
-    margin-left:5px;
-    font-size:14px;
-    font-weight:300;
-}
-
-.dashboard-item > h1{
-    margin:0;
+#dashboard-main > *:first-of-type{
     margin-top:10px;
-    font-size:20px;
+}
+
+#dashboard-main > *:last-of-type{
+    margin-bottom:10px;
+}
+
+#dashboard-main > h1{
+    margin:0;
     font-weight:700;
+    font-size:30px;
 }
 
-.dashboard-item > p{
+#dashboard-main > p{
     margin:0;
-    margin-top:5px;
-    font-size:12px;
     font-weight:300;
-}
-
-.dashboard-item > h6{
-    margin:0;
-    margin-top:10px;
     font-size:12px;
-    font-weight:500;
+    letter-spacing:1px;
+    width:calc(70vw - 250px)
 }
 
-.dashboard-large{
-    grid-column:span 2;
-}
-
-.dashboard-bg-1{
-    background:var(--brown);
-}
-
-.dashboard-bg-2{
-    background:#101010;
-    color:white;
-}
-
-.dashboard-bg-3{
-    background:white;
-}
-
-.dashboard-bg-2 > div > img{
-    filter:invert(1);
-}
-
-.dashboard-bg-3{
-    background:white;
-}
-
-.dashboard-item:last-of-type{
-    grid-column:4;
-    grid-row:1/3;
-}
-
-.dashboard-trophy-div{
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-}
-
-.dashboard-trophy-div > img{
-    height:16px;
-}
-
-.dashboard-trophy-div > p{
-    font-size:14px;
-    font-weight:300;
-    margin:0;
-}
-
-.dashboard-trophy-div{
-    margin-top:5px;
+#dashboard-main > button{
+    padding:5px 15px;
+    font-size:12px;
+    border-radius:10px;
+    border:1px solid black;
+    color:black;
+    background:linear-gradient(to right, var(--light-brown) 0%, var(--brown) 100%);
+    outline:none;
+    cursor:pointer;
 }

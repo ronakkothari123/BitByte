@@ -21,10 +21,11 @@
             <h1>Bit<span class="accent">Sports</span></h1>
         </li>
         <li class="sidebar" onclick="toggleContainer(0)">Dashboard</li>
-        <li class="sidebar" onclick="toggleContainer(1)">Active Drafts</li>
-        <li class="sidebar" onclick="toggleContainer(2)">Player Statistics</li>
-        <li class="sidebar" onclick="toggleContainer(3)">Your Inbox</li>
-        <li class="sidebar" onclick="toggleContainer(4)">Help/Information</li>
+        <li class="sidebar invisible-sidebar" onclick="toggleContainer(1)">Your Drafts</li>
+        <li class="sidebar" onclick="toggleContainer(2)">Active Drafts</li>
+        <li class="sidebar" onclick="toggleContainer(3)">Player Statistics</li>
+        <li class="sidebar" onclick="toggleContainer(4)">Your Inbox</li>
+        <li class="sidebar" onclick="toggleContainer(5)">Help/Information</li>
     </ul>
     <div id="navbar">
         <div id="profile">
@@ -45,72 +46,14 @@
         <input type="text" id="search-input" placeHolder="Search BitSports">
     </div>
     <div id="main-container">
-        <main id="dashboard" class="container">
-            <article class="dashboard-item dashboard-bg-1 dashboard-large">
-                <div>
-                    <img src="../icons/svgs/cricket.svg" alt="Icon">
-                    <p>One Day International World Cup</p>
-                </div>
-                <h1>Your Current Draft Report: One Day International 2023 World Cup</h1>
-                <p>Visit the tab "Your Draft" for more information. Anyway, below is a highlight on what happened so far!</p>
-                <h6>You Gained <span class="green">1250 Points</span>.</h6>
-                <h6>Your Best Player: <span class="green">Rohit Sharma</span> with <span class="green">+250 Points</span></h6>
-                <h6>Your Worst Player: <span class="red">Virat Kohli</span> with <span class="red">-50 Points</span></h6>
-            </article>
-            <article class="dashboard-item dashboard-bg-2">
-                <div>
-                    <img src="../icons/svgs/news.svg" alt="">
-                    <p>Your Recommended Feed</p>
-                </div>
-                <h1>Virat Kohli recieves public Backlash</h1>
-                <p>Virat Kohli recieved notice as One Day International captain with BCCI saying, only one should captain white ball, and one person should captain red ball. Kohli, under the pretense that all of India will back him, initiated a public war against Sourav Ganguly...</p>
-            </article>
-            <article class="dashboard-item dashboard-bg-3">
-                <div>
-                    <img src="../icons/svgs/news.svg" alt="">
-                    <p>BitByte News</p>
-                </div>
-                <h1>BitSports Alpha Testing Release Date Planned</h1>
-                <p>BitSports has been planned to be released for Alpha Testing on January 1st for selective players. Based on results, we will apply changes, go into Beta Testing (date for Beta Testing still not planned) and then release to the public...</p>
-            </article>
-            <article class="dashboard-item dashboard-bg-2 dashboard-large">
-                <div>
-                    <img src="../icons/svgs/notifs.svg" alt="">
-                    <p>Dashboard Notifications</p>
-                </div>
-                <h1>Filtered Dashboard Notifications</h1>
-                <p>Below are your unread notifications that are filtered to match your taste perfectly.</p>
-                <h6>OverlordsIII confirmed to be a pony with 5 legs instead of 3</h6>
-                <h6>Confirmed never pronounce the word Advayp in public.</h6>
-                <h6>VenusWarrior rhymes with something not PG. Controversiy arises as spelling is deemed unimportant by those supporting his denunciation.</h6>
-            </article>
-            <article class="dashboard-item dashboard-bg-3">
-                <div>
-                    <img src="../icons/svgs/trophy.svg" alt="">
-                    <p>BitSports Statistics</p>
-                </div>
-                <h1>Your BitSports Statistics</h1>
-                <div class="dashboard-trophy-div">
-                    <img src="../icons/svgs/xp.svg" alt="">
-                    <p>User Experience: 67</p>
-                </div>
-                <div class="dashboard-trophy-div">
-                    <img src="../icons/svgs/trophy.svg" alt="">
-                    <p>League Trophies: 6</p>
-                </div>
-                <div class="dashboard-trophy-div">
-                    <img src="../icons/svgs/trophy.svg" alt="">
-                    <p>Silver Trophies: 3</p>
-                </div>
-                <div class="dashboard-trophy-div">
-                    <img src="../icons/svgs/trophy.svg" alt="">
-                    <p>Ultimate Trophies: 1</p>
-                </div>
-                <p>You are ranked #1 in your community</p>
-                <p>You are ranked #1 in your country</p>
-                <p>You are ranked #1 on the site!</p>
-            </article>
-        </main>
+        <div id="dashboard" class="container">
+            <div id="dashboard-main">
+                <h1>One Day International 2023 Coming to a Close</h1>
+                <p>After a long time of playing, the last match is about to occur. See live scores on your One Day International Draft Tomorrow at 7:00 A.M. PST. Update your draft by visiting your draft page. Good Luck!</p>
+                <button>View Your Draft</button>
+            </div>
+        </div>
+        <div id="your-draft" class="container"></div>
         <div class="container" id="drafts"></div>
         <div class="container">Nakula is kinda Cringe</div>
         <div class="container">But then again so am I</div>
