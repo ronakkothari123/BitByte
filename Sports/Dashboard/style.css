@@ -414,11 +414,34 @@ ol{
 }
 
 .modal{
-    background:rgba(0, 0, 0, 0.5);
+    background:rgba(0, 0, 0, 0.25);
     width:100vw;
     height:100vh;
     position:absolute;
     top:0;
     left:0;
     z-index:1;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+}
+
+#join-draft > div:first-of-type {
+    padding:25px;
+    width:40vw;
+    background:white;
+}
+
+.join-draft-img {
+    background-image:url('https://coolwallpapers.me/picsup/5483779-soccer-wallpapers.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    width:20vw;
+    padding:25px;
+}
+
+#join-draft > div:first-of-type > img:first-of-type{
+    height:30px;
 }
