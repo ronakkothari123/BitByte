@@ -15,10 +15,23 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="modal active-modal" id="join-draft">
+    <div class="modal inactive-modal" id="join-draft">
         <div>
-            <img src="../icons/svgs/soccer.svg" alt="">
-            <div class="join-draft-img"></div>
+            <div>
+                <h1 id="draft-header">Joining The FIFA 2022 World Cup Draft</h1>
+                <h2>Please confirm your entrance into the Draft below. Keep in mind that faliure to play the game once confirmed as a participant could result in your account becoming locked.</h2>
+                <p>Carefully Read the following information: You are confirming your participation in the draft. Failure to participate in the draft could have your account locked. Below, you are given the option to bet some BitCoins to earn on top of the winning pot!</p>
+                <h2>Please state the amount you want to bet</h2>
+                <div class="draft-input">
+                    <img src="../icons/svgs/coin.svg" alt="">
+                    <input type="number">
+                </div>
+                <button>Confirm Participation</button>
+            </div>
+            <div class="modal-close" onclick="toggleDraftModal(undefined)">
+                <img src="../icons/svgs/close.svg" alt="">
+            </div>
+            <div id="draft-img"></div>
         </div>
     </div>
     <ul id="sidebar">
@@ -32,6 +45,10 @@
         <li class="sidebar" onclick="toggleContainer(3)">Player Statistics</li>
         <li class="sidebar" onclick="toggleContainer(4)">Your Inbox</li>
         <li class="sidebar" onclick="toggleContainer(5)">Help/Information</li>
+        <li>
+            <img src="../icons/svgs/coin.svg" alt="">
+            <p>BitCoins: <span id="coin-amount">10000</span></p>
+        </li>
     </ul>
     <div id="navbar">
         <div id="profile">

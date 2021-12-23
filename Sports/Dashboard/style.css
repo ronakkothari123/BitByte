@@ -57,6 +57,17 @@ body{
     top:0;
 }
 
+#sidebar > li:last-of-type > img{
+    height:16px;
+    filter:invert(1);
+}
+
+#sidebar > li:last-of-type > p{
+    margin:0;
+    margin-left:5px;
+    font-size:12px;
+}
+
 #sidebar > li:not(.invisible-sidebar){
     list-style-type:none;
     margin-left:-40px;
@@ -67,6 +78,22 @@ body{
     font-weight:300;
     padding:10px 20px;
     cursor:pointer;
+}
+
+#sidebar > li:last-of-type{
+    background:var(--brown);
+    width:200px;
+    position:absolute;
+    bottom:25px;
+    right:20px;
+    height:26px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    margin:0;
+    border-radius:13px;
 }
 
 #sidebar > li > img{
@@ -414,14 +441,13 @@ ol{
 }
 
 .modal{
-    background:rgba(0, 0, 0, 0.25);
+    background:rgba(0, 0, 0, 0.5);
     width:100vw;
     height:100vh;
     position:absolute;
     top:0;
     left:0;
     z-index:1;
-    display:flex;
     flex-direction:row;
     justify-content:center;
     align-items:center;
@@ -429,19 +455,117 @@ ol{
 
 #join-draft > div:first-of-type {
     padding:25px;
-    width:40vw;
+    width:60vw;
     background:white;
+    box-shadow:0 0 50px 5px gray;
+    display:flex;
+    position:relative;
 }
 
-.join-draft-img {
+#join-draft > div:first-of-type > div:first-of-type > *{
+    width:calc(40vw - 45px);
+}
+
+#join-draft > div:first-of-type > div:first-of-type{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+#join-draft > div:first-of-type > div:first-of-type > img{
+    height:30px;
+} 
+
+#join-draft > div:first-of-type > div:first-of-type > h1{
+    font-size:25px;
+    font-weight:900;
+    margin:0;
+}
+
+#join-draft > div:first-of-type > div:first-of-type > h2{
+    margin:0;
+    font-size:12px;
+    font-weight:300;
+    color:gray;
+    letter-spacing:1px;
+}
+
+#join-draft > div:first-of-type > div:last-of-type{
     background-image:url('https://coolwallpapers.me/picsup/5483779-soccer-wallpapers.jpg');
-    background-size:cover;
     background-repeat:no-repeat;
     background-position:center;
+    background-size:cover;
+    height:100%;
     width:20vw;
-    padding:25px;
+    position:absolute;
+    top:0;
+    right:0;
 }
 
 #join-draft > div:first-of-type > img:first-of-type{
     height:30px;
+}
+
+#join-draft > div:first-of-type > div:first-of-type > p{
+    font-size:12px;
+    margin:10px 0;
+    font-weight:300;
+}
+
+.draft-input{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    background:#eee;
+    border:1px solid lightgray;
+    border-radius:20px;
+    padding:0 20px;
+    margin:10px 0;
+}
+
+.draft-input > img{
+    height:20px;
+}
+
+.draft-input > input{
+    outline:none;
+    border:none;
+    height:40px;
+    background:transparent;
+    padding-left:10px;
+    width:calc(40vw - 75px);
+}
+
+#join-draft > div:first-of-type > div:first-of-type > button{
+    width:calc(40vw - 5px);
+    background:#101010;
+    color:white;
+    border:none;
+    font-size:12px;
+    height:20px;
+    border-radius:10px;
+    cursor:pointer;
+    transition-duration:250ms;
+    outline:none;
+}
+
+#join-draft > div:first-of-type > div:first-of-type > button:hover{
+    background:#202020;
+}
+
+.modal-close{
+    background:white;
+    position:absolute;
+    top:20px;
+    right:20px;
+    z-index:1;
+    height:20px;
+    width:20px;
+    padding:5px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.modal-close > img{
+    height:20px;
 }

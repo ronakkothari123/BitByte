@@ -2,6 +2,8 @@ const containers = document.querySelectorAll(".container");
 const sidebars = document.querySelectorAll(".sidebar");
 const sportsList = ['cricket', 'football', 'basketball', 'soccer']
 
+let draftsList = [];
+let draftIndex = 0;
 let activeContainer = 0;
 
 function createFantasyLeague(sportIndex, name, prize, competing, image){
@@ -36,6 +38,8 @@ function createFantasyLeague(sportIndex, name, prize, competing, image){
     para.innerHTML = competing + " People Competing"
     btn.innerHTML = "Join League"
 
+    btn.setAttribute("onClick", "toggleDraftModal(" + draftIndex + ")");
+
     secondDiv.appendChild(headerDiv)
     secondDiv.appendChild(para)
     secondDiv.appendChild(btn)
@@ -45,6 +49,23 @@ function createFantasyLeague(sportIndex, name, prize, competing, image){
     newDiv.appendChild(thirdDiv)
 
     document.getElementById('drafts').appendChild(newDiv);
+    
+    let draftList = [name, image]
+    
+    draftsList.push(draftList)
+    draftIndex++;
+}
+
+function toggleDraftModal(num){
+    if(num == undefined){
+        document.getElementById('join-draft').classList.remove('active-modal');
+        document.getElementById('join-draft').classList.add('inactive-modal');
+    } else {
+        document.getElementById('join-draft').classList.add('active-modal');
+        document.getElementById('join-draft').classList.remove('inactive-modal');
+        document.getElementById('draft-header').innerHTML = "Joining The " + draftsList[num][0] + " Draft";
+        document.getElementById('draft-img').style.backgroundImage = "url('" + draftsList[num][1] + "')"
+    }
 }
 
 function toggleContainer(num){
@@ -56,8 +77,6 @@ function toggleContainer(num){
     containers[num].classList.add('active-container')
 
     activeContainer = num;
-
-    console.log(containers[0].classList)
 }
 
 createFantasyLeague(1, "NFL 2022 Fantasy", "1 Ultimate Trophy", 7284854, "https://cdn.vox-cdn.com/thumbor/X0BcMsovx2iiZvMrSc4bgQk5y-g=/0x0:1200x800/1200x800/filters:focal(504x304:696x496)/cdn.vox-cdn.com/uploads/chorus_image/image/70203570/Week12WinnersLosers_AP_Ringer.0.jpeg")
