@@ -79,13 +79,6 @@ function toggleDraftModal(num){
     }
 }
 
-function updateDraftPlayerStats(image, sport, name, title){
-    document.getElementById('draft-player-img').style.backgroundImage = "url('" + image + "')"
-    document.getElementById('draft-player-sport').src = "../icons/svgs/" + sport + ".svg";
-    document.getElementById('draft-player-name').innerHTML = name;
-    document.getElementById('draft-player-title').innerHTML = title;
-}
-
 function toggleContainer(num){
     containers[activeContainer].classList.remove('active-container');
 
@@ -102,7 +95,5 @@ createFantasyLeague(0, "IPL 2022 Cup", "1 League Trophy", 4567837, "https://wall
 createFantasyLeague(2, "NBA 2022 Fantasy", "1 Ultimate Trophy", 12, "https://cdn.nba.com/manage/2021/10/3point-lead-graphic.png")
 createFantasyLeague(3, "FIFA 2022 World Cup", "1 Ultimate Trophy", 14843725, "https://i.pinimg.com/736x/b0/1d/99/b01d994ca2e910f93f0f1fed81d99b1f.jpg")
 createFantasyLeague(0, "ICC T20 World Cup", "1 Silver Trophy", 982374, "https://pbs.twimg.com/media/E9FpDDFXsAAqkbR.jpg");
-
-updateDraftPlayerStats("https://www.firstpost.com/wp-content/uploads/2021/08/Virat-Kohli-Headingley-loss-Day-4-AP-640.jpg", "cricket", "Virat Kohli", "Cringe Indian Captain")
 
 toggleContainer(1)
