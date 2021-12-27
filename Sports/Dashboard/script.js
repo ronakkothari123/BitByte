@@ -1,3 +1,14 @@
+/*const API_KEY = '24995126-3263844d74d69f7b7b610a0c4';
+const URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
+
+import { createClient } from 'pexels';
+const client = createClient('563492ad6f917000010000012ddf299f56d4458a944014f96e891a7e');
+const query = 'Nature';
+
+client.photos.search({ query, per_page: 1 }).then(photos => {
+    console.log(photos)
+});*/
+
 const containers = document.querySelectorAll(".container");
 const sidebars = document.querySelectorAll(".sidebar");
 const sportsList = ['cricket', 'football', 'basketball', 'soccer']
@@ -68,6 +79,13 @@ function toggleDraftModal(num){
     }
 }
 
+function updateDraftPlayerStats(image, sport, name, title){
+    document.getElementById('draft-player-img').style.backgroundImage = "url('" + image + "')"
+    document.getElementById('draft-player-sport').src = "../icons/svgs/" + sport + ".svg";
+    document.getElementById('draft-player-name').innerHTML = name;
+    document.getElementById('draft-player-title').innerHTML = title;
+}
+
 function toggleContainer(num){
     containers[activeContainer].classList.remove('active-container');
 
@@ -85,4 +103,6 @@ createFantasyLeague(2, "NBA 2022 Fantasy", "1 Ultimate Trophy", 12, "https://cdn
 createFantasyLeague(3, "FIFA 2022 World Cup", "1 Ultimate Trophy", 14843725, "https://i.pinimg.com/736x/b0/1d/99/b01d994ca2e910f93f0f1fed81d99b1f.jpg")
 createFantasyLeague(0, "ICC T20 World Cup", "1 Silver Trophy", 982374, "https://pbs.twimg.com/media/E9FpDDFXsAAqkbR.jpg");
 
-toggleContainer(0)
+updateDraftPlayerStats("https://www.firstpost.com/wp-content/uploads/2021/08/Virat-Kohli-Headingley-loss-Day-4-AP-640.jpg", "cricket", "Virat Kohli", "Cringe Indian Captain")
+
+toggleContainer(1)

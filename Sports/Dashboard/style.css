@@ -569,3 +569,55 @@ ol{
 .modal-close > img{
     height:20px;
 }
+
+#draft-player-stats{
+    width:200px;
+    padding:0 25px;
+    border-left:1px solid lightgray;
+    position:absolute;
+    height:calc(100vh - 75px);
+    top:0;
+    right:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#draft-player-img{
+    width:200px;
+    height:200px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    border-radius:25px;
+    border:1px solid lightgray;
+}
+
+#draft-player-stats > div{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    margin-top:20px;
+}
+
+#draft-player-stats > div > img{
+    margin-right:5px;
+    height:30px;
+}
+
+#draft-player-stats > div > div{
+    display:flex;
+    flex-direction:column;
+}
+
+#draft-player-stats > div > div > h1{
+    margin:0;
+    font-size:24px;
+}
+
+#draft-player-stats > div > div > p{
+    margin:0;
+    font-weight:300;
+    font-size:12px;
+}
