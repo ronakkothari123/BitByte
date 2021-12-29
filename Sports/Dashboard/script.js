@@ -12,6 +12,7 @@ client.photos.search({ query, per_page: 1 }).then(photos => {
 const containers = document.querySelectorAll(".container");
 const sidebars = document.querySelectorAll(".sidebar");
 const sportsList = ['cricket', 'football', 'basketball', 'soccer']
+const statusList = ['#94ff99', '#fbff94', '#ff9494']
 
 let draftsList = [];
 let draftIndex = 0;
@@ -74,9 +75,17 @@ function toggleDraftModal(num){
     } else {
         document.getElementById('join-draft').classList.add('active-modal');
         document.getElementById('join-draft').classList.remove('inactive-modal');
+        document.getElementById('draft-confirm-btn').setAttribute('onClick', "confirmDraft(" + num + ")");
         document.getElementById('draft-header').innerHTML = "Joining The " + draftsList[num][0] + " Draft";
         document.getElementById('draft-img').style.backgroundImage = "url('" + draftsList[num][1] + "')"
     }
+}
+
+function confirmDraft(num){
+    document.getElementById('join-draft').classList.remove('active-modal');
+    document.getElementById('join-draft').classList.add('inactive-modal');
+    draftNotification("Congratulations! You successfully joined the " + draftsList[num][0] + " Draft!", 1)
+    toggleContainer(1)
 }
 
 function toggleContainer(num){
@@ -84,10 +93,32 @@ function toggleContainer(num){
 
     sidebars[activeContainer].classList.remove('active-sidebar');
     sidebars[num].classList.add('active-sidebar');
-    
+    sidebars[num].classList.remove('invisible-sidebar');
     containers[num].classList.add('active-container')
 
     activeContainer = num;
+}
+
+function draftNotification(text, statusIndex){
+
+    const draftNotif = document.createElement('p');
+
+    if(text != ""){
+        draftNotif.style.display = "flex";
+        draftNotif.innerHTML = text;
+
+        let closeSpan = document.createElement('span');
+        let closeImg = document.createElement('img');
+
+        closeImg.setAttribute('onclick', 'draftNotification("", 0)')
+        closeImg.src = "../icons/svgs/close.svg"
+
+        closeSpan.appendChild(closeImg);
+        draftNotif.appendChild(closeSpan);
+        draftNotif.style.background = statusList[statusIndex]
+
+        document.getElementById('draft-navbar').prepend(draftNotif);
+    } else draftNotif.style.display = "none";
 }
 
 createFantasyLeague(1, "NFL 2022 Fantasy", "1 Ultimate Trophy", 7284854, "https://cdn.vox-cdn.com/thumbor/X0BcMsovx2iiZvMrSc4bgQk5y-g=/0x0:1200x800/1200x800/filters:focal(504x304:696x496)/cdn.vox-cdn.com/uploads/chorus_image/image/70203570/Week12WinnersLosers_AP_Ringer.0.jpeg")
@@ -95,5 +126,7 @@ createFantasyLeague(0, "IPL 2022 Cup", "1 League Trophy", 4567837, "https://wall
 createFantasyLeague(2, "NBA 2022 Fantasy", "1 Ultimate Trophy", 12, "https://cdn.nba.com/manage/2021/10/3point-lead-graphic.png")
 createFantasyLeague(3, "FIFA 2022 World Cup", "1 Ultimate Trophy", 14843725, "https://i.pinimg.com/736x/b0/1d/99/b01d994ca2e910f93f0f1fed81d99b1f.jpg")
 createFantasyLeague(0, "ICC T20 World Cup", "1 Silver Trophy", 982374, "https://pbs.twimg.com/media/E9FpDDFXsAAqkbR.jpg");
+createFantasyLeague(2, "NCAA Basketball", "1 Silver Trophy", 11, "https://a.espncdn.com/photo/2021/1108/ncaa_bracketology-men_16x9.jpg");
 
-toggleContainer(1)
+toggleContainer(0);
+draftNotification("", 0);

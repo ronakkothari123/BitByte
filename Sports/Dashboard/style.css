@@ -577,7 +577,7 @@ ol{
     left:0;
 }
 
-#draft-notification{
+#draft-navbar > p{
     margin:0;
     width:calc(100vw - 250px);
     background:#94ff99;
@@ -589,11 +589,11 @@ ol{
     align-items:center;
 }
 
-#draft-notification::before, #draft-notification::after{
+#draft-navbar > p::before, #draft-navbar > p::after{
     content:'~';
 }
 
-#draft-notification > span > img{
+#draft-navbar > p > span > img{
     margin:0;
     height:12px;
     background:white;
@@ -606,7 +606,60 @@ ol{
     cursor:pointer;
 }
 
-#draft-notification > span{
+#draft-navbar > p > span{
     position:absolute;
     right:10px;
+}
+
+#draft-list{
+    margin:0;
+    width:calc(100vw - 270px);
+    padding:0 10px;
+    background:white;
+    display:flex;
+    flex-direction:row;
+    border-bottom:1px solid lightgray;
+    border-top:1px solid lightgray;
+}
+
+#draft-list > div{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    margin:10px 5px;
+    padding:5px 10px;
+    border-radius:10px;
+    cursor:pointer;
+    transition-duration:250ms;
+}
+
+#draft-list > div:not(.active-draft-navbar){
+    border:1px solid lightgray;
+    background:#eee;
+}
+
+#draft-list > div:hover:not(.active-draft-navbar){
+    background:#101010;
+    border:1px solid black;
+    color:white;
+}
+
+#draft-list > div:hover:not(.active-draft-navbar) > img{
+    filter:invert(1);
+}
+
+#draft-list > div > p{
+    font-size:12px;
+    margin:0;
+}
+
+#draft-list > div > img{
+    height:16px;
+    margin-right:5px;
+}
+
+.active-draft-navbar{
+    background:var(--brown);
+    border:1px solid black;
+    box-shadow:inset 0 0 5px 0 black;
 }

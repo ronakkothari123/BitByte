@@ -26,7 +26,7 @@
                     <img src="../icons/svgs/coin.svg" alt="">
                     <input type="number">
                 </div>
-                <button>Confirm Participation</button>
+                <button id="draft-confirm-btn">Confirm Participation</button>
             </div>
             <div class="modal-close" onclick="toggleDraftModal(undefined)">
                 <img src="../icons/svgs/close.svg" alt="">
@@ -43,7 +43,6 @@
         <li class="sidebar invisible-sidebar" onclick="toggleContainer(1)">Your Drafts</li>
         <li class="sidebar" onclick="toggleContainer(2)">Active Drafts</li>
         <li class="sidebar" onclick="toggleContainer(3)">Player Statistics</li>
-        <li class="sidebar" onclick="toggleContainer(4)">Your Inbox</li>
         <li class="sidebar" onclick="toggleContainer(5)">Help/Information</li>
         <li>
             <img src="../icons/svgs/coin.svg" alt="">
@@ -78,12 +77,24 @@
         </div>
         <div id="your-draft" class="container">
             <div id="draft-navbar">
-                <p id="draft-notification">You Successfully Joined The Fifa 2022 World Cup <span><img src="../icons/svgs/close.svg" alt=""></span></p>
-            </div>
+                <div id="draft-list">
+                    <div class="active-draft-navbar">
+                        <img src="../icons/svgs/cricket.svg" alt="">
+                        <p>IPL 2022 Cup</p>
+                    </div>
+                    <div>
+                        <img src="../icons/svgs/soccer.svg" alt="">
+                        <p>FIFA 2022 World Cup</p>
+                    </div>
+                    <div>
+                        <img src="../icons/svgs/football.svg" alt="">
+                        <p>NFL 2022 Fantasy</p>
+                    </div>
+                </div>
+            </div>  
         </div>
         <div class="container" id="drafts"></div>
         <div class="container">Nakula is kinda Cringe</div>
-        <div class="container">But then again so am I</div>
         <div class="container" id="help-info">
             <h1 style="font-size:36px;">How To Play BitByte Sports</h1>
             <h6>BitByte Sports - Fantasy Sports Modernized</h6>
