@@ -669,15 +669,17 @@ ol{
     flex-direction:row;
     align-items:flex-start;
     justify-content:flex-start;
+    width:calc(100vw - 250px);
 }
 
 #draft-main{
-    background:red;
+    width:calc(100vw - 555px);
 }
 
 #draft-side-info{
     height:100%;
     border-left:1px solid lightgray;
-    background:blue;
-    width:200px;
+    padding:25px;
+    width:250px;
+    height:calc(100vh - 175px);
 }
