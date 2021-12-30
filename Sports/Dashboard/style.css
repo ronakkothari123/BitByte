@@ -663,3 +663,21 @@ ol{
     border:1px solid black;
     box-shadow:inset 0 0 5px 0 black;
 }
+
+#draft-main-container{
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+    justify-content:flex-start;
+}
+
+#draft-main{
+    background:red;
+}
+
+#draft-side-info{
+    height:100%;
+    border-left:1px solid lightgray;
+    background:blue;
+    width:200px;
+}

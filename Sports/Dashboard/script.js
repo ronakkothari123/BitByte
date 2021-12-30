@@ -17,6 +17,7 @@ const statusList = ['#94ff99', '#fbff94', '#ff9494']
 let draftsList = [];
 let draftIndex = 0;
 let activeContainer = 0;
+let draftNotifIndex = 0;
 
 function createFantasyLeague(sportIndex, name, prize, competing, image){
     let newDiv = document.createElement('div')
@@ -84,7 +85,9 @@ function toggleDraftModal(num){
 function confirmDraft(num){
     document.getElementById('join-draft').classList.remove('active-modal');
     document.getElementById('join-draft').classList.add('inactive-modal');
-    draftNotification("Congratulations! You successfully joined the " + draftsList[num][0] + " Draft!", 1)
+    if(document.getElementById('draft-main-input').value == "") draftNotification("Note: You made an empty bet for the " + draftsList[num][0] + " draft", 1);
+    document.getElementById('draft-main-input').value = "";
+    draftNotification("Congratulations! You successfully joined the " + draftsList[num][0] + " Draft", 0)
     toggleContainer(1)
 }
 
@@ -99,26 +102,30 @@ function toggleContainer(num){
     activeContainer = num;
 }
 
-function draftNotification(text, statusIndex){
-
+function draftNotification(text, statusIndex, closeIndex){
     const draftNotif = document.createElement('p');
-
-    if(text != ""){
+    if(text != "close"){
         draftNotif.style.display = "flex";
         draftNotif.innerHTML = text;
 
         let closeSpan = document.createElement('span');
         let closeImg = document.createElement('img');
 
-        closeImg.setAttribute('onclick', 'draftNotification("", 0)')
+        closeImg.setAttribute('onclick', "draftNotification('close', 0, " + draftNotifIndex + ")");
         closeImg.src = "../icons/svgs/close.svg"
 
         closeSpan.appendChild(closeImg);
         draftNotif.appendChild(closeSpan);
         draftNotif.style.background = statusList[statusIndex]
+        draftNotif.classList.add('draft-notification')
 
         document.getElementById('draft-navbar').prepend(draftNotif);
-    } else draftNotif.style.display = "none";
+        draftNotifIndex++;
+        console.log(draftNotifIndex)
+    } else {
+        document.querySelectorAll('.draft-notification')[draftNotifIndex - closeIndex - 1].style.display = "none";
+        console.log(closeIndex)
+    }
 }
 
 createFantasyLeague(1, "NFL 2022 Fantasy", "1 Ultimate Trophy", 7284854, "https://cdn.vox-cdn.com/thumbor/X0BcMsovx2iiZvMrSc4bgQk5y-g=/0x0:1200x800/1200x800/filters:focal(504x304:696x496)/cdn.vox-cdn.com/uploads/chorus_image/image/70203570/Week12WinnersLosers_AP_Ringer.0.jpeg")
@@ -129,4 +136,3 @@ createFantasyLeague(0, "ICC T20 World Cup", "1 Silver Trophy", 982374, "https://
 createFantasyLeague(2, "NCAA Basketball", "1 Silver Trophy", 11, "https://a.espncdn.com/photo/2021/1108/ncaa_bracketology-men_16x9.jpg");
 
 toggleContainer(0);
-draftNotification("", 0);
