@@ -3,6 +3,7 @@ import { __prod__ } from "./constants";
 import { User } from "./entities/User";
 import path from "path";
 import dotenv from "dotenv";
+import { Draft } from "./entities/Draft";
 
 dotenv.config();
 
@@ -16,5 +17,5 @@ export default {
     password: process.env.PG_PASSWORD,
     type: "postgresql",
     debug: !__prod__,
-    entities: [User],
+    entities: [User, Draft],
 } as Parameters<typeof MikroORM.init>[0];

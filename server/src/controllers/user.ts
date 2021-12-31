@@ -16,9 +16,9 @@ export const GetAllUsers = async (_: Request, res: Response) => {
 };
 
 export const Register = async (req: Request, res: Response) => {
-    const { name, password } = req.body;
+    const { username, password, realName } = req.body;
 
-    if (name == "") {
+    if (username == "") {
         res.json({
             errors: [
                 {
@@ -44,8 +44,9 @@ export const Register = async (req: Request, res: Response) => {
     const hashedPassword = await argon2.hash(password);
 
     const user = Context.em!.create(User, {
-        username: name,
+        username: username,
         password: hashedPassword,
+        name: realName,
     });
 
     Context.em!.persistAndFlush(user);
@@ -143,6 +144,5 @@ export const DeleteUser = async (req: Request, res: Response) => {
 };
 
 export const Me = async (req: Request, res: Response) => {
-    // res.json({ user: req.session.user });
     res.json({ username: req.session.user?.username });
 };

@@ -7,6 +7,7 @@ const constants_1 = require("./constants");
 const User_1 = require("./entities/User");
 const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const Draft_1 = require("./entities/Draft");
 dotenv_1.default.config();
 exports.default = {
     migrations: {
@@ -18,6 +19,6 @@ exports.default = {
     password: process.env.PG_PASSWORD,
     type: "postgresql",
     debug: !constants_1.__prod__,
-    entities: [User_1.User],
+    entities: [User_1.User, Draft_1.Draft],
 };
 //# sourceMappingURL=mikro-orm.config.js.map

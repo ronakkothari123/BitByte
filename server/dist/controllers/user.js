@@ -13,8 +13,8 @@ const GetAllUsers = async (_, res) => {
 };
 exports.GetAllUsers = GetAllUsers;
 const Register = async (req, res) => {
-    const { name, password } = req.body;
-    if (name == "") {
+    const { username, password, realName } = req.body;
+    if (username == "") {
         res.json({
             errors: [
                 {
@@ -37,8 +37,9 @@ const Register = async (req, res) => {
     }
     const hashedPassword = await argon2_1.default.hash(password);
     const user = index_1.Context.em.create(User_1.User, {
-        username: name,
+        username: username,
         password: hashedPassword,
+        name: realName,
     });
     index_1.Context.em.persistAndFlush(user);
     req.session.user = user;

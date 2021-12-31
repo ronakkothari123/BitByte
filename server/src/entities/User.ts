@@ -1,4 +1,11 @@
-import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
+import {
+    Collection,
+    Entity,
+    OneToMany,
+    PrimaryKey,
+    Property,
+} from "@mikro-orm/core";
+import { Draft } from "./Draft";
 
 @Entity()
 export class User {
@@ -16,4 +23,10 @@ export class User {
 
     @Property({ type: "text" })
     password!: string;
+
+    @Property({ type: "text", nullable: true })
+    name: string;
+
+    @OneToMany(() => Draft, (draft) => draft.user)
+    drafts = new Collection<Draft>(this);
 }

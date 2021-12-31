@@ -7,6 +7,7 @@ import { MyContext } from "./types";
 import userRouter from "./routers/user";
 import session from "express-session";
 import cookieParser from "cookie-parser";
+import draftRouter from "./routers/draft";
 
 const app = express();
 const PORT = 5000;
@@ -41,6 +42,7 @@ const main = async () => {
     });
 
     app.use("/user", userRouter);
+    app.use("/draft", draftRouter);
 };
 
 main().catch(console.error);
