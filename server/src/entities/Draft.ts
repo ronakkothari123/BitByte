@@ -18,6 +18,6 @@ export class Draft {
     @Property({ type: "text" })
     team!: string;
 
-    @ManyToOne({ type: "User" })
+    @ManyToOne({ type: "User", nullable: true })
     user!: User;
 }

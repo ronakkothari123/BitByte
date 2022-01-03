@@ -44,7 +44,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "name", void 0);
 __decorate([
-    (0, core_1.OneToMany)(() => Draft_1.Draft, (draft) => draft.user),
+    (0, core_1.OneToMany)(() => Draft_1.Draft, (draft) => draft.user, { nullable: true }),
     __metadata("design:type", Object)
 ], User.prototype, "drafts", void 0);
 User = __decorate([

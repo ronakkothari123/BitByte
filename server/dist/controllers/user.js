@@ -9,7 +9,12 @@ const User_1 = require("../entities/User");
 const argon2_1 = __importDefault(require("argon2"));
 const GetAllUsers = async (_, res) => {
     const users = await index_1.Context.em.find(User_1.User, {});
-    res.json(users);
+    var finalResult = [];
+    for (const user of users) {
+        await user.drafts.init();
+        finalResult = [...finalResult, { user }];
+    }
+    res.json(finalResult);
 };
 exports.GetAllUsers = GetAllUsers;
 const Register = async (req, res) => {

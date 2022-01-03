@@ -27,6 +27,6 @@ export class User {
     @Property({ type: "text", nullable: true })
     name: string;
 
-    @OneToMany(() => Draft, (draft) => draft.user)
+    @OneToMany(() => Draft, (draft) => draft.user, { nullable: true })
     drafts = new Collection<Draft>(this);
 }
