@@ -39,7 +39,7 @@ __decorate([
     __metadata("design:type", String)
 ], Draft.prototype, "team", void 0);
 __decorate([
-    (0, core_1.ManyToOne)({ type: "User" }),
+    (0, core_1.ManyToOne)({ type: "User", nullable: true }),
     __metadata("design:type", User_1.User)
 ], Draft.prototype, "user", void 0);
 Draft = __decorate([

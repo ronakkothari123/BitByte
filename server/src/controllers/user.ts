@@ -12,7 +12,14 @@ declare module "express-session" {
 export const GetAllUsers = async (_: Request, res: Response) => {
     const users = await Context.em!.find(User, {});
 
-    res.json(users);
+    var finalResult: any = [];
+
+    for (const user of users) {
+        await user.drafts.init();
+        finalResult = [...finalResult, { user }];
+    }
+
+    res.json(finalResult);
 };
 
 export const Register = async (req: Request, res: Response) => {
