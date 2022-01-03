@@ -1,0 +1,109 @@
+:root{
+    --light-brown:#ffce94;
+    --brown:#fcb043;
+    --dark-brown:#e2791b;
+}
+
+body{
+    margin:0;
+    font-family:'Ubuntu';
+}
+
+#sidebar{
+    padding:50px;
+    background:black;
+    position:absolute;
+    height:calc(100vh - 100px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+#sidebar > img:first-of-type{
+    width:35px;
+    position:absolute;
+    padding:25px 0;
+    filter:none;
+    top:0;
+}
+
+#sidebar > img:last-of-type{
+    position:absolute;
+    bottom:0;
+    filter:invert();
+    width:30px;
+    padding:25px 0;
+    cursor:pointer;
+    transition-duration:100ms;
+}
+
+#sidebar > img:last-of-type:hover{
+    filter: invert(40%) sepia(51%) saturate(2999%) hue-rotate(334deg) brightness(96%) contrast(106%);
+}
+
+.sidebar-item{
+    filter:invert();
+    width:30px;
+    cursor:pointer;
+    margin:25px 0;
+}
+
+#navbar{
+    padding:25px;
+    background:#eee;
+    position:absolute;
+    top:0;
+    right:0;
+    width:calc(100vw - 180px);
+}
+
+.active-sidebar{
+    border-bottom:5px solid black;
+}
+
+#navbar-main{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#navbar-main > h1{
+    font-size:20px;
+    font-weight:500;
+    margin:0;
+}
+
+#navbar-main > div{
+    border-bottom:1px solid black;
+    position:absolute;
+    right:25px;
+    display:flex;
+    flex-direction:row;
+    align-items:flex-end;
+    padding-bottom:5px;
+}
+
+#navbar-main > div > input{
+    width:500px;
+    outline:none;
+    border:none;
+    background:none;
+    font-size:14px;
+}
+
+#navbar-main > div > img{
+    height:20px;
+    cursor:pointer;
+}
+
+#navbar-main > div > div{
+    background-image:url('../Sports/icons/avatars/jersey.png');
+    background-size:cover;
+    background-position:center;
+    cursor:pointer;
+    width:24px;
+    height:24px;
+    margin-left:12px;
+}
