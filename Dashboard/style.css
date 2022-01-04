@@ -107,3 +107,45 @@ body{
     height:24px;
     margin-left:12px;
 }
+
+#navbar-tabs{
+    position:absolute;
+    display:flex;
+    margin:0;
+    margin-left:-40px;
+    font-size:12px;
+    font-weight:300;
+    bottom:-13px;;
+    left:65px;
+    color:gray;
+}
+
+#navbar-tabs > p{
+    padding:6px 0;
+    margin-right:12px;
+    transition-duration:250ms;
+    cursor:pointer;
+    background-image:linear-gradient(black,black);
+    background-size:0% 2px;
+    background-position:bottom left;
+    background-repeat:no-repeat;
+    transition:1s all;
+}
+
+#navbar-tabs > p:hover{
+    padding:6px 0;
+    margin-right:12px;
+    transition-duration:250ms;
+    cursor:pointer;
+    background-image:linear-gradient(black,black);
+    background-size:100% 2px;
+    background-position:bottom left;
+    background-repeat:no-repeat;
+    transition:1s all;
+    color:black;
+}
+
+.active-navbar-tab{
+    font-weight:900;
+    color:black;
+}
