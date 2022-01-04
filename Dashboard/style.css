@@ -141,11 +141,94 @@ body{
     background-size:100% 2px;
     background-position:bottom left;
     background-repeat:no-repeat;
-    transition:1s all;
+    transition:500ms all;
     color:black;
 }
 
 .active-navbar-tab{
     font-weight:900;
-    color:black;
+    color:black; 
+}
+
+#main-container{
+    position:absolute;
+    top:100px;
+    right:25px;
+    width:calc(100vw - 180px);
+}
+
+#store-page{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:flex-start;
+    flex-wrap:wrap;
+}
+
+#store-page > div{
+    border:1px solid lightgray;
+    transition-duration:250ms;
+    margin:0 12.5px 25px 12.5px;
+}
+
+#store-page > div:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 24px 0 gray;
+}
+
+#store-page > div > div:first-of-type{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    width:250px;
+    height:200px;
+}
+
+#store-page > div > div:first-of-type > img{
+    width:125px;
+    transition-duration:250ms;
+}
+
+#store-page > div:hover > div:first-of-type > img{
+    transform:scale(1.1);
+}
+
+#store-page > div > div:nth-of-type(2){
+    background:#eee;
+    width:200px;
+    padding:25px;
+}
+
+#store-page > div > div:nth-of-type(2) > h1{
+    margin:0;
+    font-size:24px;
+    font-weight:400;
+}
+
+#store-page > div > div:nth-of-type(2) > p{
+    margin:0;
+    font-size:12px;
+    font-weight:300;
+}
+
+#store-page > div > div:nth-of-type(2) > h2{
+    margin:0;
+    margin-top:12px;
+    font-size:16px;
+    text-align:center;
+}
+
+#store-page > div > button{
+    width:250px;
+    outline:none;
+    border:none;
+    margin:0;
+    font-size:14px;
+    cursor:pointer;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    padding:6px 0;
+    background:#101010;
+    color:white;
 }
