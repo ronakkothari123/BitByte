@@ -8,6 +8,7 @@ import userRouter from "./routers/user";
 import session from "express-session";
 import cookieParser from "cookie-parser";
 import draftRouter from "./routers/draft";
+import trophiesRouter from "./routers/trophies";
 
 const app = express();
 const PORT = 5000;
@@ -43,6 +44,7 @@ const main = async () => {
 
     app.use("/user", userRouter);
     app.use("/draft", draftRouter);
+    app.use("/trophies", trophiesRouter);
 };
 
 main().catch(console.error);
