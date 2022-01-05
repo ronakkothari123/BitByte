@@ -1,0 +1,138 @@
+:root{
+    --light-brown:#d094ff;
+    --brown:#b343fc;
+    --dark-brown:#7c1be2;
+    --light-blue:#def2fc;
+    --text-color:#000;
+    --bg-color:#eee;
+    --border-color:lightgray;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin:0;
+    font-family:'Ubuntu';
+    background:white;
+    overflow-x:hidden;
+    color:var(--text-color);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+#navbar{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    width:90vw;
+    margin: 0 auto;
+    height:100px;
+    position:relative;
+    z-index:1;
+}
+
+#navbar > img:first-of-type{
+    height:50px;
+    margin-right:5px;
+}
+
+#headers{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+#headers > h1{
+    margin:0;
+    font-size:32px;
+    font-weight:700;
+}
+
+#headers > p{
+    margin:0;
+    font-size:14px;
+    font-weight:300;
+}
+
+.navbar-item{
+    margin-left:50px;
+    font-weight:300;
+    font-size:14px;
+    cursor:pointer;
+    color:var(--text-color);
+    text-decoration:none;
+}
+
+#navbar-right{
+    position:absolute;
+    right:0;
+}
+
+#navbar-right > button{
+    background:var(--brown);
+    border:none;
+    outline:none;
+    width:200px;
+    height:30px;
+    font-size:14px;
+    font-weight:300;
+    border-radius:15px;
+    box-shadow:0 0 10px 0 var(--dark-brown);
+    font-family:'Ubuntu';
+    cursor:pointer;
+}
+
+#banner-container{
+    background-image:url('../images/balloon.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    width:100vw;
+    height:60vh;  
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    color:black;
+}
+
+.accent{
+    color:vaR(--brown);
+}
+
+#main-container{
+    width:90vw;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column-reverse;
+    align-items:center;
+    margin-top:25px;
+    text-align:center;
+}
+
+#main-container > div{
+    width:45vw;
+}
+
+#main-container > div:last-of-type > img{
+    width:45vw;
+}
+
+#main-container > div > h1{
+    font-size:100px;
+    font-weight:700;
+    margin:0;
+}
+
+#main-container > div > p{
+    font-size:14px;
+    font-weight:300;
+}
+
+#main-container > div > h1::after, #main-container > div > h1::before{
+    content:'~';
+}
