@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitByte Sports - Your Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./purpleicon.png">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="modal inactive-modal" id="join-draft">
+        <div>
+            <div>
+                <h1 id="draft-header">Joining The FIFA 2022 World Cup Draft</h1>
+                <h2>Please confirm your entrance into the Draft below. Keep in mind that faliure to play the game once confirmed as a participant could result in your account becoming locked.</h2>
+                <p>Carefully Read the following information: You are confirming your participation in the draft. Failure to participate in the draft could have your account locked. Below, you are given the option to bet some BitCoins to earn on top of the winning pot!</p>
+                <h2>Please state the amount you want to bet</h2>
+                <div class="draft-input">
+                    <img src="../icons/svgs/coin.svg" alt="">
+                    <input type="number" placeholder="0.00" id="draft-main-input">
+                </div>
+                <button id="draft-confirm-btn">Confirm Participation</button>
+            </div>
+            <div class="modal-close" onclick="toggleDraftModal(undefined)">
+                <img src="../icons/svgs/close.svg" alt="">
+            </div>
+            <div id="draft-img"></div>
+        </div>
+    </div>
+    <ul id="sidebar">
+        <li>
+            <img src="./purpleicon.png" alt="">
+            <h1>Bit<span class="accent">Sports</span></h1>
+        </li>
+        <li class="sidebar" onclick="toggleContainer(0)">Dashboard</li>
+        <li class="sidebar invisible-sidebar" onclick="toggleContainer(1)">Your Drafts</li>
+        <li class="sidebar" onclick="toggleContainer(2)">Active Drafts</li>
+        <li class="sidebar" onclick="toggleContainer(3)">Player Statistics</li>
+        <li class="sidebar" onclick="toggleContainer(4)">Help/Information</li>
+        <li>
+            <img src="../icons/svgs/coin.svg" alt="">
+            <p>ByteCoins: <span id="coin-amount">10000</span></p>
+        </li>
+    </ul>
+    <div id="navbar">
+        <div id="profile">
+            <img src="../icons/avatars/jersey.png" alt="">
+            <div>
+                <p>Ronak Kothari</p>
+                <div>
+                    <img src="../icons/svgs/trophy.svg" alt="">
+                    <p>2 League Trophies</p>
+                </div>
+            </div>
+        </div>
+        <div id="notifs">
+            <img src="../icons/svgs/notifs.svg" alt="">
+            <div></div>
+        </div>
+        <button id="search">Search</button>
+        <input type="text" id="search-input" placeHolder="Search BitSports">
+    </div>
+    <div id="main-container">
+        <div id="dashboard" class="container">
+            <div id="dashboard-main">
+                <h1>One Day International 2023 Coming to a Close</h1>
+                <p>After a long time of playing, the last match is about to occur. See live scores on your One Day International Draft Tomorrow at 7:00 A.M. PST. Update your draft by visiting your draft page. Good Luck!</p>
+                <button>View Your Draft</button>
+            </div>
+        </div>
+        <div id="your-draft" class="container">
+            <div id="draft-navbar">
+                <div id="draft-list">
+                    <div class="active-draft-navbar">
+                        <img src="../icons/svgs/cricket.svg" alt="">
+                        <p>IPL 2022 Cup</p>
+                    </div>
+                    <div>
+                        <img src="../icons/svgs/soccer.svg" alt="">
+                        <p>FIFA 2022 World Cup</p>
+                    </div>
+                    <div>
+                        <img src="../icons/svgs/football.svg" alt="">
+                        <p>NFL 2022 Fantasy</p>
+                    </div>
+                </div>
+                <div id="draft-main-container">
+                    <div id="draft-main">
+                        f
+                    </div>
+                    <div id="draft-side-info"></div>
+                </div>
+            </div>  
+        </div>
+        <div class="container" id="drafts"></div>
+        <div class="container">Nakula is kinda Cringe</div>
+        <div class="container" id="help-info">
+            <h1 style="font-size:36px;">How To Play BitByte Sports</h1>
+            <h6>BitByte Sports - Fantasy Sports Modernized</h6>
+            <p>BitByte Sports is fantasy sports modernized! We strive to make fantasy sports easier, and more fun for everyone to join. The best part is, it can be played wherever you are! The idea of BitByte Sports came from fantasy cricket, where the developers wanted to play, only to find how challenging it is to join if you didn't have an Indian Phone Number. So we made this website, to allow all to join the fun of fantasy sports.</p>
+            <h2>What are Fantasy Sports?</h2>
+            <p>Fantasy Sports, specifically BitByte Sports, is a math game to obtain the most amount of points as possible. Before you click off seeing it is a MATH GAME, you should know that it is a strategy game as well. The time it takes is based upon the league.</p>
+            <p>The game is based on real life, and events that happen in the real life league affect your total score in the game. The more points you have, the closer you are to achieving the trophy corresponding to the league.</p>
+            <h2>How to play Fantasy Sports</h2>
+            <p>When you join the draft, the draft time begins and it will distribute player cards to all the players in your group. Groups are made up of 16 players, and the person with the most points in each group gets a trophy. In Ultimate Trophy matches, groups are made up of 64 players. You will have to fill up player slots according to what you predict will happen in the games they play in. The better the player performs the more points you gain.</p>
+            <h2>What Are Trophies and XP?</h2>
+            <p>Trophies are given to only the few people that win a league. Trophies are extremely rare and they go up by rarity. League trophies are the least rare and many leagues have this. For bigger and more famous leagues, silver trophies are what you can win. It is much more difficult to get. Final Ultimate Trophies are given to the finals of each sport. This includes the World Cup of many sports. As such, this is the hardest trophy to recieve.</p>
+            <ol>
+                <li>League Trophy</li>
+                <li>Silver Trophy</li>
+                <li>Ultimate Trophy</li>
+            </ol>
+            <p>Never gonna give you up never gonna let you down, never gonna run around and desert you.</p>
+            <div id="version-num">v1.0.0</div>
+        </div>
+    </div>
+</body>
+</html>
