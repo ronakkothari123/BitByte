@@ -10,13 +10,15 @@ This documentation will go over the various endpoints and their respective requi
 
 This represents a draft which the user can choose.
 
-**Specifics**:
+```TypeScript
+class Draft {
+    name: string,
+    team: string,
+    user: number
+}
+```
 
-`name`: the name of the player being drafted
-
-`team`: the team of the player being drafted
-
-`user`: the id of the user which this draft belongs to. Null if no user owns this draft.
+The user property of the draft object is usually an integer, representing the user's id.
 
 Eg.
 
@@ -24,7 +26,7 @@ Eg.
 const draft = {
     name: "Brian Lara",
     team: "West Indies",
-    user: "4",
+    user: 4,
 };
 ```
 
@@ -48,23 +50,46 @@ const user = {
 
 This type represents a standard user of BitByte.
 
-**Specifics**:
+```ts
+class User {
+    id: number,
+    username: string,
+    password: string,
+    name: string,
+    drafts: Draft[],
+    trophies: string,
+}
+```
 
-`id`: a unique identifier given to each user upon creation
+### Errors
 
-`username`: the username of the user
+If a request returns errors, they are placed in an array, with each error being of the following format
 
-`password`: the password of the user, hashed using [argon2](https://github.com/ranisalt/node-argon2)
+```js
+class ErrorElement {
+    field: string;
+    message: string;
+}
+```
 
-`name`: the user's real name
+An example response with an error
 
-`drafts`: a list of the user's current drafts
+```js
+{
+    errors: [
+        {
+            field: "username",
+            error: "that username does not exist",
+        },
+    ];
+}
+```
 
-`trophies`: a string representing the number of trophies a user has.
+The password of the user is hashed using [argon2](https://github.com/ranisalt/node-argon2)
 
 ## User Endpoints
 
-Most POST endpoints return error objects as well as the expected objects\*.
+**Note**: Most [user](#user) endpoints return [error objects](#errors) as well as the expected objects\*.
 
 Be sure to check for errors!
 
@@ -77,7 +102,7 @@ Be sure to check for errors!
 | `/user/login`    | POST | `{username, password}`           | The username and id of the user                   |
 | `/user/delete`   | POST | `{username, password}`           | Success status (boolean)                          |
 
-Some example requests are shown below
+Some example requests are shown below\*\*
 
 ```js
 // Get All Users
@@ -90,12 +115,40 @@ foreach (const user of data) {
 
 ```js
 // Sign a User Up
+
+const body = {
+    username: "bob",
+    password: "xxxx",
+};
+
 const data = await (
     await fetch("https://bitbyte.api.com/user/register", {
-        username: "Bob",
-        password: "XXXX",
+        method: "POST",
+        body: JSON.stringify(body),
     })
 ).json();
 
-console.log(data.name);
+if (data.errors) {
+    // Handle Error
+} else {
+    // Handle Success
+}
 ```
+
+\* CORS has not been setup yet
+
+\*\*The example requests do not include important details such as CORS
+
+## Draft Endpoints
+
+[Draft](#draft) endpoints will return [error objects](#errors) as well.
+
+| Route           | Type | Body                          | Response                      |
+| --------------- | ---- | ----------------------------- | ----------------------------- |
+| `/draft/all`    | GET  | None                          | All created drafts            |
+| `/draft/add`    | POST | `{draft: {name, team}, user}` | An array of the user's drafts |
+| `/draft/remove` | POST | `{draft: {name, team}, user}` | An array of the user's drafts |
+
+When adding a draft, if it is not present in the database, it is automatically created and stored in the database.
+
+An exchange route will be added so that draft trading in possible in one call.
