@@ -29,4 +29,7 @@ export class User {
 
     @OneToMany(() => Draft, (draft) => draft.user, { nullable: true })
     drafts = new Collection<Draft>(this);
+
+    @Property({ type: "text", nullable: true })
+    trophies: string;
 }

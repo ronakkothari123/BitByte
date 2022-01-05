@@ -19,31 +19,31 @@ let Draft = class Draft {
     }
 };
 __decorate([
-    (0, core_1.PrimaryKey)(),
+    core_1.PrimaryKey(),
     __metadata("design:type", Number)
 ], Draft.prototype, "id", void 0);
 __decorate([
-    (0, core_1.Property)({ type: "date" }),
+    core_1.Property({ type: "date" }),
     __metadata("design:type", Object)
 ], Draft.prototype, "createdAt", void 0);
 __decorate([
-    (0, core_1.Property)({ type: "date", onUpdate: () => new Date() }),
+    core_1.Property({ type: "date", onUpdate: () => new Date() }),
     __metadata("design:type", Object)
 ], Draft.prototype, "updatedAt", void 0);
 __decorate([
-    (0, core_1.Property)({ type: "text" }),
+    core_1.Property({ type: "text" }),
     __metadata("design:type", String)
 ], Draft.prototype, "name", void 0);
 __decorate([
-    (0, core_1.Property)({ type: "text" }),
+    core_1.Property({ type: "text" }),
     __metadata("design:type", String)
 ], Draft.prototype, "team", void 0);
 __decorate([
-    (0, core_1.ManyToOne)({ type: "User", nullable: true }),
+    core_1.ManyToOne({ type: "User", nullable: true }),
     __metadata("design:type", User_1.User)
 ], Draft.prototype, "user", void 0);
 Draft = __decorate([
-    (0, core_1.Entity)()
+    core_1.Entity()
 ], Draft);
 exports.Draft = Draft;
 //# sourceMappingURL=Draft.js.map
