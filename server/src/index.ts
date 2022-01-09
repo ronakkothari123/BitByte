@@ -11,7 +11,7 @@ import draftRouter from "./routers/draft";
 import trophiesRouter from "./routers/trophies";
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 dotenv.config();
 
@@ -38,11 +38,7 @@ const main = async () => {
         console.log(`Alive on http://localhost:${PORT}`);
     });
 
-    app.get("/", (_, res) => {
-        res.send("Hello World");
-    });
-
-    app.use("/user", userRouter);
+    app.use("/", userRouter);
     app.use("/draft", draftRouter);
     app.use("/trophies", trophiesRouter);
 };
