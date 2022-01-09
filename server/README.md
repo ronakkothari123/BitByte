@@ -151,4 +151,12 @@ if (data.errors) {
 
 When adding a draft, if it is not present in the database, it is automatically created and stored in the database.
 
-An exchange route will be added so that draft trading in possible in one call.
+A `/draft/trade` endpoint will be added so that draft trading in possible in one call.
+
+## Trophy Endpoints
+
+| Route           | Type | Body                                 | Response                    |
+| --------------- | ---- | ------------------------------------ | --------------------------- |
+| `/trophies/add` | POST | `{trophy: {name, amount}, username}` | The user's updated trophies |
+
+The `/trophies/add` route adds a given amount to a give trophy type. For more information about trophies see [trophies info](#trophies).
