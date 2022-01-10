@@ -11,7 +11,7 @@ import draftRouter from "./routers/draft";
 import trophiesRouter from "./routers/trophies";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 80;
 
 dotenv.config();
 
