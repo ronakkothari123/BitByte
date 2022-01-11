@@ -136,3 +136,5 @@ createFantasyLeague(0, "ICC T20 World Cup", "1 Silver Trophy", 982374, "https://
 createFantasyLeague(2, "NCAA Basketball", "1 Silver Trophy", 11, "https://a.espncdn.com/photo/2021/1108/ncaa_bracketology-men_16x9.jpg");
 
 toggleContainer(0);
+
+console.error("404 Error: Nakula not Found")
